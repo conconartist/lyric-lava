@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Prompt from './Prompt/Prompt'
+import Prompt from '../Prompt/Prompt';
+import Form from '../Form/Form';
 import './App.css';
 
 class App extends Component {
@@ -7,7 +8,6 @@ class App extends Component {
     super();
     this.state = {
       words: []
-
     }
   }
   componentDidMount() {
@@ -20,7 +20,8 @@ class App extends Component {
     return (
       <main>
         <h1 className='title'>Lyric Lava</h1>
-        <Prompt handleClick={this.handleClick} />
+        <Prompt handleClick='this.handleClick' />
+        <Form />
       </main>
     )
   }
