@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
 import './Prompt.css';
 
-const Prompt = ({handleClick}) => {
+const Prompt = ({clickForPrompt}) => {
   //if clicked, fetch prompt
-    return (
-        <div className='prompt' onClick={handleClick}>
-            <h2 className="prompt-title">Prompt</h2>
+  const suggestPrompt = () => {
 
+  }
+    return (
+        <div className='prompt' onClick={clickForPrompt}>
+            <h2 className='promptTitle'>Prompt</h2>
+            <h3 className='promptSuggestion'>{suggestPrompt}</h3>
         </div>
     )
     
