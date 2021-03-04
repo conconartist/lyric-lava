@@ -1,0 +1,21 @@
+.buttonRhymingWords {
+    display: flex;
+}
+
+.buttonThesaurus {
+    display: flex;
+}
+form {
+    color:cadetblue;
+    background-color: darkgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wordSearchForm {
+    display: flex;
+    flex-direction: column;
+    height: 20vh;
+    justify-content: space-evenly;
+}
