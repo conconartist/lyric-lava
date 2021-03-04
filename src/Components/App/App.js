@@ -7,21 +7,35 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      words: []
+      prompt: {},
+      rhymingWords: [],
+      similarWords: []
     }
   }
   componentDidMount() {
+    //do i need this?
+  }
+  displayRhymingWords() {
 
   }
-  handleClick() {
+  displaySimilarWords() {
+
+  }
+  // displayRhymingWords() {
+
+  // }
+  // displaySimilarWords() {
+
+  // }
+  clickForPrompt() {
     //display new prompt on screen from examples in words
   }
   render() {
     return (
       <main>
         <h1 className='title'>Lyric Lava</h1>
-        <Prompt handleClick='this.handleClick' />
-        <Form />
+        <Prompt clickForPrompt='this.clickForPrompt' />
+        <Form displayRhymingWords='this.displayRhymingWords' displaySimilarWords='this.displaySimilarWords'/>
       </main>
     )
   }
