@@ -1,5 +1,5 @@
 {
-  "_from": "cypress",
+  "_from": "cypress@^6.6.0",
   "_id": "cypress@6.6.0",
   "_inBundle": false,
   "_integrity": "sha512-+Xx3Zn653LJHUsCb9h1Keql2jlazbr1ROmbY6DFJMmXKLgXP4ez9cE403W93JNGRbZK0Tng3R/oP8mvd9XAPVg==",
@@ -15,14 +15,14 @@
     "strip-final-newline": "2.0.0"
   },
   "_requested": {
-    "type": "tag",
+    "type": "range",
     "registry": true,
-    "raw": "cypress",
+    "raw": "cypress@^6.6.0",
     "name": "cypress",
     "escapedName": "cypress",
-    "rawSpec": "",
+    "rawSpec": "^6.6.0",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "^6.6.0"
   },
   "_requiredBy": [
     "#DEV:/",
@@ -30,7 +30,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/cypress/-/cypress-6.6.0.tgz",
   "_shasum": "659c64cdb06e51b6be18fdac39d8f192deb54fa0",
-  "_spec": "cypress",
+  "_spec": "cypress@^6.6.0",
   "_where": "/Users/connie/lyric-lava",
   "author": {
     "name": "Brian Mann"
