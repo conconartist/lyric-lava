@@ -10,10 +10,12 @@ class App extends Component {
     this.state = {
       prompt: " ",
       rhymingWords: [],
-      similarWords: []
+      similarWords: [], 
+      isFetching: false
     }
   }
   componentDidMount() {
+    this.setState({isFetching: true})
     fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true", {
       "method": "GET",
       "headers": {
@@ -36,7 +38,7 @@ class App extends Component {
       if (data.examples.length === 0) {
           this.setState({prompt: data.word})
       } else {
-      this.setState({prompt: data.examples[0]})
+      this.setState({ prompt: data.examples[0], isFetching: false })
       }
     })
     .catch(err => {
