@@ -11,7 +11,8 @@ class App extends Component {
       prompt: "",
       rhymingWords: [],
       similarWords: [], 
-      isFetching: false
+      isFetching: false,
+      error: false
     }
   }
   clickForPrompt = () => {
@@ -24,7 +25,8 @@ class App extends Component {
       }
     })
     .catch(err => {
-	  console.error(err);
+      this.setState({ error: true })
+	    console.error(err);
     });
   }
 
