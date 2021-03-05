@@ -8,14 +8,13 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      prompt: " ",
+      prompt: "",
       rhymingWords: [],
       similarWords: [], 
       isFetching: false
     }
   }
-  componentDidMount() {
-    this.setState({isFetching: true})
+  clickForPrompt = () => {
     fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true", {
       "method": "GET",
       "headers": {
@@ -34,11 +33,12 @@ class App extends Component {
     })
     .then(response => response.json())
     .then(data => { 
-      console.log(data)
       if (data.examples.length === 0) {
-          this.setState({prompt: data.word})
+        console.log(data.word)
+          this.setState({ prompt: data.word })
       } else {
-      this.setState({ prompt: data.examples[0], isFetching: false })
+        this.state.prompt = data.examples[0]
+      this.setState({ prompt: data.examples[0]})
       }
     })
     .catch(err => {
@@ -51,10 +51,11 @@ class App extends Component {
     return (
       <main>
         <h1 className='title'>Lyric Lava</h1>
-        <h2>Prompt:</h2>
-        <h2>{this.state.prompt}</h2>
-        <Prompt clickForPrompt='this.clickForPrompt' />
-        <Form displayRhymingWords='this.displayRhymingWords' displaySimilarWords='this.displaySimilarWords'/>
+        <Prompt 
+          clickForPrompt={this.clickForPrompt} 
+          prompt={this.state.prompt}
+        />
+        <Form displayRhymingWords={this.displayRhymingWords} displaySimilarWords={this.displaySimilarWords}/>
       </main>
     )
   }
