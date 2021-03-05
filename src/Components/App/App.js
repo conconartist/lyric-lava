@@ -2,40 +2,46 @@ import React, { Component } from 'react';
 import Prompt from '../Prompt/Prompt';
 import Form from '../Form/Form';
 import './App.css';
+import apiCalls from '../../apiCalls';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      prompt: {},
+      prompt: "",
       rhymingWords: [],
-      similarWords: []
+      similarWords: [], 
+      isFetching: false,
+      error: false
     }
   }
-  componentDidMount() {
-    //do i need this?
+  clickForPrompt = () => {
+    apiCalls.getPrompt()
+    .then((data) => { 
+      if (data.examples.length === 0) {
+        this.setState({ prompt: data.word })
+      } else {
+        this.setState({ prompt: data.examples[0]})
+      }
+    })
+    .catch(err => {
+      this.setState({ error: true })
+	    console.error(err);
+    });
   }
-  displayRhymingWords() {
 
-  }
-  displaySimilarWords() {
-
-  }
-  // displayRhymingWords() {
-
-  // }
-  // displaySimilarWords() {
-
-  // }
-  clickForPrompt() {
-    //display new prompt on screen from examples in words
-  }
   render() {
     return (
       <main>
         <h1 className='title'>Lyric Lava</h1>
-        <Prompt clickForPrompt='this.clickForPrompt' />
-        <Form displayRhymingWords='this.displayRhymingWords' displaySimilarWords='this.displaySimilarWords'/>
+        <Prompt 
+          clickForPrompt={this.clickForPrompt} 
+          prompt={this.state.prompt}
+        />
+        <Form 
+          displayRhymingWords={this.displayRhymingWords} 
+          displaySimilarWords={this.displaySimilarWords}
+        />
       </main>
     )
   }
