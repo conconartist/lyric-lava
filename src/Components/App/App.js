@@ -36,7 +36,10 @@ class App extends Component {
           clickForPrompt={this.clickForPrompt} 
           prompt={this.state.prompt}
         />
-        <Form displayRhymingWords={this.displayRhymingWords} displaySimilarWords={this.displaySimilarWords}/>
+        <Form 
+          displayRhymingWords={this.displayRhymingWords} 
+          displaySimilarWords={this.displaySimilarWords}
+        />
       </main>
     )
   }
