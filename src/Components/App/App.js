@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import Prompt from '../Prompt/Prompt';
-import Rhymes from '../Rhymes/Rhymes';
+import FormResults from '../FormResults/FormResults';
 import RhymeForm from '../RhymeForm/RhymeForm';
 import SynonymForm from '../SynonymForm/SynonymForm';
-import Synonyms from '../Synonyms/Synonyms';
 import './App.css';
 import apiCalls from '../../apiCalls';
 
@@ -80,13 +79,15 @@ class App extends Component {
         <RhymeForm
           searchForRhymes={this.searchForRhymes}
         />
-        <Synonyms 
+        <FormResults
           word={this.state.synonymSearchWord}
-          synonyms={this.state.similarWords}
+          rhymes={this.state.similarWords}
+          type='synonyms'
         />
-        <Rhymes 
+        <FormResults
           word={this.state.rhymeSearchWord}
           rhymes={this.state.rhymingWords}
+          type='rhymes'
         />
       </main>
     )
