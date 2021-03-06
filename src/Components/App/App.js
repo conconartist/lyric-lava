@@ -33,22 +33,20 @@ class App extends Component {
     });
   }
   searchForSimilar = (searchInput) => {
-    console.log("input", searchInput)
-    // this.setState({ synonymSearchWord: searchInput })
     return fetch(`https://wordsapiv1.p.rapidapi.com/words/${searchInput}/synonyms`, {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "ab8f25f4e4msh6e7ff2ff1b339f9p198212jsn42fc0f56dbc6",
-		"x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
-	}
-})
-.then(response => response.json())
-.then(data => {
-  this.setState({ synonymSearchWord: searchInput, similarWords: data.synonyms })
-})
-.catch(err => {
-	console.error(err);
-});
+	    "method": "GET",
+	    "headers": {
+		    "x-rapidapi-key": "ab8f25f4e4msh6e7ff2ff1b339f9p198212jsn42fc0f56dbc6",
+		    "x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
+	  }
+  })
+  .then(response => response.json())
+  .then(data => {
+    this.setState({ synonymSearchWord: searchInput, similarWords: data.synonyms })
+  })
+  .catch(err => {
+	  console.error(err);
+  });
   }
   searchForRhymes = (searchInput) => {
     this.setState({})
