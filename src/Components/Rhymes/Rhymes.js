@@ -6,7 +6,9 @@ const Rhymes = ({ word, rhymes }) => {
         <div className='rhymeContainer'>
             <h3 className='rhymeHeading'> Words that rhyme with {word} </h3>
             <section className='rhymeList'>
-                {rhymes}
+                {rhymes && rhymes.map((word, index) => (
+                    <p key={index} className='rhyme'>{word}</p>
+                ))}
             </section>
         </div>
     )
