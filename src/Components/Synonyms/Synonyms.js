@@ -1,4 +1,5 @@
 import React from 'react';
+import './Synonyms.css';
 
 const Synonyms = ({ word, synonyms }) => {
     // console.log(word)
