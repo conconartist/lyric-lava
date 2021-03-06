@@ -1,0 +1,9 @@
+.rhymeContainer {
+    display: flex;
+    flex-direction: column;
+}
+.rhymeList {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
