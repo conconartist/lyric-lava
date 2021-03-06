@@ -19,6 +19,7 @@ class App extends Component {
       error: false
     }
   }
+
   clickForPrompt = () => {
     apiCalls.getPrompt()
     .then((data) => { 
@@ -33,66 +34,88 @@ class App extends Component {
 	    console.error(err);
     });
   }
+
   searchForSimilar = (searchInput) => {
-    return fetch(`https://wordsapiv1.p.rapidapi.com/words/${searchInput}/synonyms`, {
-	    "method": "GET",
-	    "headers": {
-		    "x-rapidapi-key": "ab8f25f4e4msh6e7ff2ff1b339f9p198212jsn42fc0f56dbc6",
-		    "x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
-	  }
-  })
-  .then(response => response.json())
-  .then(data => {
-    this.setState({ synonymSearchWord: searchInput, similarWords: data.synonyms })
-  })
-  .catch(err => {
-	  console.error(err);
-  });
+    if(searchInput) {
+      return fetch(`https://wordsapiv1.p.rapidapi.com/words/${searchInput}/synonyms`, {
+	      "method": "GET",
+	      "headers": {
+		      "x-rapidapi-key": "ab8f25f4e4msh6e7ff2ff1b339f9p198212jsn42fc0f56dbc6",
+		      "x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
+        }
+	      })
+        .then(response => response.json())
+        .then(data => {
+          this.setState({ synonymSearchWord: searchInput, similarWords: data.synonyms })
+        })
+        .catch(err => {
+	        console.error(err);
+        });
+    }  
   }
+
   searchForRhymes = (searchInput) => {
-    fetch(`https://wordsapiv1.p.rapidapi.com/words/${searchInput}/rhymes`, {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "ab8f25f4e4msh6e7ff2ff1b339f9p198212jsn42fc0f56dbc6",
-		"x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
-	}
-})
-.then(response => response.json())
-.then(data => {
-  this.setState({ rhymeSearchWord: searchInput, rhymingWords: data.rhymes.all })
-})
-.catch(err => {
-	console.error(err);
-});
+    if(searchInput) {
+      fetch(`https://wordsapiv1.p.rapidapi.com/words/${searchInput}/rhymes`, {
+	      "method": "GET",
+	      "headers": {
+		      "x-rapidapi-key": "ab8f25f4e4msh6e7ff2ff1b339f9p198212jsn42fc0f56dbc6",
+		      "x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
+	      }
+      })
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ rhymeSearchWord: searchInput, rhymingWords: data.rhymes.all })
+      })
+      .catch(err => {
+	      console.error(err);
+      });
+    }
   }
+
   render() {
     return (
       <main>
         <h1 className='title'>Lyric Lava</h1>
-        <Prompt 
-          clickForPrompt={this.clickForPrompt} 
-          prompt={this.state.prompt}
-        />
-        <SynonymForm 
-          searchForSimilar={this.searchForSimilar}
-        />
-        <RhymeForm
-          searchForRhymes={this.searchForRhymes}
-        />
-        {this.state.similarWords &&
-          <FormResults
-            word={this.state.synonymSearchWord}
-            wordResults={this.state.similarWords}
-            type='synonyms'
+        <section className='resultsDisplay'>
+          {this.state.prompt && 
+            <div className='promptDisplay'>
+              <h3 className='promptHeading'>Your prompt:</h3>
+              <p>{this.state.prompt}</p>
+            </div>
+          }
+          {this.state.similarWords &&
+            <FormResults
+              word={this.state.synonymSearchWord}
+              wordResults={this.state.similarWords}
+              type='synonyms'
+            />
+          }
+
+          {this.state.rhymingWords &&
+            <FormResults
+              word={this.state.rhymeSearchWord}
+              wordResults={this.state.rhymingWords}
+              type='rhymes'
+            /> 
+          }
+        </section>
+        <section className="selectionContainer">
+          <Prompt 
+            clickForPrompt={this.clickForPrompt} 
+            prompt={this.state.prompt}
           />
-        }
-        {this.state.rhymingWords &&
-          <FormResults
-            word={this.state.rhymeSearchWord}
-            wordResults={this.state.rhymingWords}
-            type='rhymes'
-          /> 
-        }
+          <div className='formContainer'>
+            <SynonymForm 
+              searchForSimilar={this.searchForSimilar}
+            />
+            <RhymeForm
+              searchForRhymes={this.searchForRhymes}
+            />
+          </div>
+        </section>
+        
+        
       </main>
     )
   }

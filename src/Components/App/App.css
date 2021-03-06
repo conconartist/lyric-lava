@@ -1,3 +1,6 @@
+.formContainer {
+  display: flex;
+}
 main {
   align-items: center;
   background-color: black;
@@ -8,9 +11,29 @@ main {
 }
 
 h1 {
+  border: white solid 2px;
   font-size: 5em;
   height: 20vh;
 }
 p {
+  border: white solid 2px;
   color:cornsilk;
+}
+
+.selectionContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.promptDisplay {
+  border: white solid 2px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.resultsDisplay {
+  border: white solid 2px;
+  display: flex;
+  flex-direction: column;
 }
