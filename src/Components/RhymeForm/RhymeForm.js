@@ -4,6 +4,7 @@ import './RhymeForm.css';
 const RhymeForm = ( { searchForRhymes }) => {
     const [userInput, setUserInput] = useState('');
     const searchRhymingWords = (event) => {
+        event.preventDefault()
         setUserInput(event.target.value)
         searchForRhymes(userInput)
     }
@@ -14,10 +15,10 @@ const RhymeForm = ( { searchForRhymes }) => {
                   type='text'
                   placeholder='Enter Word'
                   value={userInput}
-                  onChange={searchForRhymes}
+                  onChange={searchRhymingWords}
                 >
                 </input>
-                <button className='buttonRhymes' onClick={searchForRhymes}> Get Rhyming Words </button>
+                <button className='buttonRhymes' onClick={searchRhymingWords}> Get Rhyming Words </button>
             </form>
         </div>
     )
