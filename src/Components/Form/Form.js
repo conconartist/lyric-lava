@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
 import './Form.css';
 
-const Form = ( { displayRhymingWords, displaySimilarWords }) => {
+const Form = ( { searchForSimilar }) => {
   const [userInput, setUserInput] = useState('');
   const searchSimilarWords = (event) => {
-      setUserInput(event.target.value)
-  }
-  const searchRhymingWords = (event) => {
-      setUserInput(event.target.value)
-  }
+    event.preventDefault()
+    setUserInput(event.target.value)
+      searchForSimilar(userInput)
 
+      // searchForSimilar(event, userInput)
+  }
+  // const searchRhymingWords = (event) => {
+
+  //     setUserInput(event.target.value)
+  // }
+
+  //radio buttons instead
+  //go to separate page display
   return(
+
     <div className='wordSearchForm'>
       <form className='similarWordsForm'>
         <input
@@ -20,9 +28,9 @@ const Form = ( { displayRhymingWords, displaySimilarWords }) => {
           onChange={searchSimilarWords}
         >
         </input>
-        <button className='buttonThesaurus' onClick={displaySimilarWords}>Get Similar Words</button>
+        <button className='buttonThesaurus' onClick={searchSimilarWords} >Get Similar Words</button>
       </form>
-      <form className='rhymingWordsForm'>
+      {/* <form className='rhymingWordsForm'>
         <input
           type='text'
           placeholder='Enter Word'
@@ -30,10 +38,11 @@ const Form = ( { displayRhymingWords, displaySimilarWords }) => {
           onChange={searchRhymingWords}
         >
         </input>
-        <button className='buttonRhymingWords' onClick={displayRhymingWords}>Get Rhyming Words</button>
-      </form>
+        <button className='buttonRhymingWords' onClick={searchForRhymes}>Get Rhyming Words</button>
+      </form> */}
     </div>
     
   )
+
 }
 export default Form;
