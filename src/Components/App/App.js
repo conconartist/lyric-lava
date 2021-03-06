@@ -79,16 +79,20 @@ class App extends Component {
         <RhymeForm
           searchForRhymes={this.searchForRhymes}
         />
-        <FormResults
-          word={this.state.synonymSearchWord}
-          rhymes={this.state.similarWords}
-          type='synonyms'
-        />
-        <FormResults
-          word={this.state.rhymeSearchWord}
-          rhymes={this.state.rhymingWords}
-          type='rhymes'
-        />
+        {this.state.similarWords &&
+          <FormResults
+            word={this.state.synonymSearchWord}
+            wordResults={this.state.similarWords}
+            type='synonyms'
+          />
+        }
+        {this.state.rhymingWords &&
+          <FormResults
+            word={this.state.rhymeSearchWord}
+            wordResults={this.state.rhymingWords}
+            type='rhymes'
+          /> 
+        }
       </main>
     )
   }

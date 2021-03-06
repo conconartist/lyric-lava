@@ -1,9 +1,23 @@
-.rhymeContainer {
+.resultsContainer {
     display: flex;
     flex-direction: column;
+    color: white;
 }
-.rhymeList {
+.resultsList {
     align-items: center;
     display: flex;
     flex-direction: column;
+    color: yellow;
+}
+
+.resultWord {
+    display:flex;
+}
+
+.rhymeHeading {
+    color: blanchedalmond;
+}
+
+.synonymHeading {
+    color: pink;
 }
