@@ -1,0 +1,8 @@
+.synonymContainer {
+    display: flex;
+    flex-direction: row;
+}
+.synonymList {
+    display: flex;
+    flex-direction: column;
+}
