@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import Prompt from '../Prompt/Prompt';
+import Rhymes from '../Rhymes/Rhymes';
+import RhymeForm from '../RhymeForm/RhymeForm';
 import SynonymForm from '../SynonymForm/SynonymForm';
 import Synonyms from '../Synonyms/Synonyms';
 import './App.css';
 import apiCalls from '../../apiCalls';
-import RhymeForm from '../RhymeForm/RhymeForm';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       prompt: "",
+      rhymeSearchWord: "",
       synonymSearchWord: "",
       rhymingWords: [],
       similarWords: [], 
@@ -49,20 +51,21 @@ class App extends Component {
   });
   }
   searchForRhymes = (searchInput) => {
-    this.setState({})
-    //fetch similarWords
-    // this.displaySimilarWords(similarWords)
-    this.render()
+    fetch(`https://wordsapiv1.p.rapidapi.com/words/${searchInput}/rhymes`, {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "ab8f25f4e4msh6e7ff2ff1b339f9p198212jsn42fc0f56dbc6",
+		"x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
+	}
+})
+.then(response => response.json())
+.then(data => {
+  this.setState({ rhymeSearchWord: searchInput, rhymingWords: data.rhymes.all })
+})
+.catch(err => {
+	console.error(err);
+});
   }
-  displayRhymingWords = (rhymingWords) => {
-    //handleClick for rhyming search
-    // this.setState({rhymingWords: {rhymingWords}})
-    this.render()
-  }
-  // displaySimilarWords = (similarWords) => {
-  //   //handleClick for Similar words search
-  //   // this.setState({similarWords: {similarWords}})
-  // }
   render() {
     return (
       <main>
@@ -80,6 +83,10 @@ class App extends Component {
         <Synonyms 
           word={this.state.synonymSearchWord}
           synonyms={this.state.similarWords}
+        />
+        <Rhymes 
+          word={this.state.rhymeSearchWord}
+          rhymes={this.state.rhymingWords}
         />
       </main>
     )
