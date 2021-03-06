@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Prompt from '../Prompt/Prompt';
-import Form from '../Form/Form';
+import SynonymForm from '../SynonymForm/SynonymForm';
 import Synonyms from '../Synonyms/Synonyms';
 import './App.css';
 import apiCalls from '../../apiCalls';
+import RhymeForm from '../RhymeForm/RhymeForm';
 
 class App extends Component {
   constructor() {
@@ -32,10 +33,9 @@ class App extends Component {
     });
   }
   searchForSimilar = (searchInput) => {
-
     console.log("input", searchInput)
-    this.setState({ synonymSearchWord: searchInput })
-    return fetch(`https://wordsapiv1.p.rapidapi.com/words/${this.state.synonymSearchWord}/synonyms`, {
+    // this.setState({ synonymSearchWord: searchInput })
+    return fetch(`https://wordsapiv1.p.rapidapi.com/words/${searchInput}/synonyms`, {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-key": "ab8f25f4e4msh6e7ff2ff1b339f9p198212jsn42fc0f56dbc6",
@@ -44,17 +44,16 @@ class App extends Component {
 })
 .then(response => response.json())
 .then(data => {
-  this.setState({ similarWords: data.synonyms })
+  this.setState({ synonymSearchWord: searchInput, similarWords: data.synonyms })
 })
 .catch(err => {
 	console.error(err);
 });
   }
-  searchForRhymes = (event, userInput) => {
-    event.preventDefault()
+  searchForRhymes = (searchInput) => {
+    this.setState({})
     //fetch similarWords
     // this.displaySimilarWords(similarWords)
-    console.log(userInput)
     this.render()
   }
   displayRhymingWords = (rhymingWords) => {
@@ -62,10 +61,10 @@ class App extends Component {
     // this.setState({rhymingWords: {rhymingWords}})
     this.render()
   }
-  displaySimilarWords = (similarWords) => {
-    //handleClick for Similar words search
-    // this.setState({similarWords: {similarWords}})
-  }
+  // displaySimilarWords = (similarWords) => {
+  //   //handleClick for Similar words search
+  //   // this.setState({similarWords: {similarWords}})
+  // }
   render() {
     return (
       <main>
@@ -74,8 +73,11 @@ class App extends Component {
           clickForPrompt={this.clickForPrompt} 
           prompt={this.state.prompt}
         />
-        <Form 
+        <SynonymForm 
           searchForSimilar={this.searchForSimilar}
+        />
+        <RhymeForm
+          searchForRhymes={this.searchForRhymes}
         />
         <Synonyms 
           word={this.state.synonymSearchWord}
