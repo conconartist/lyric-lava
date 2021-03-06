@@ -13,6 +13,8 @@ const FormResults = ({ word, wordResults, type}) => {
         </section>
       </div>
     )
+//if more than 10 results, display first 10, click option for more on separate page 
+
     } else if(type === 'synonyms') {
     return (
       <div className="synonymContainer">
