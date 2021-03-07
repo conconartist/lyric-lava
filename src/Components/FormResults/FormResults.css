@@ -1,23 +1,23 @@
 .resultsContainer {
+    border: white solid 2px;
     display: flex;
     flex-direction: column;
-    color: white;
+    align-items: center;
+    margin: 1em;
+    padding: 1em;
+    width: 80%;
 }
 .resultsList {
     align-items: center;
-    display: flex;
+    display: grid;
     flex-direction: column;
     color: yellow;
 }
 
-.resultWord {
+/* .resultWord {
     display:flex;
-}
+} */
 
-.rhymeHeading {
+.resultsHeading {
     color: blanchedalmond;
-}
-
-.synonymHeading {
-    color: pink;
 }

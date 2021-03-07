@@ -1,0 +1,14 @@
+
+.similarWordsForm {
+    height: 5vh;
+}
+.synonymSearchForm {
+    border: white solid 2px;
+    color: chartreuse;
+    display: flex;
+    justify-content: center;
+    height: 7vh;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1em;
+}
