@@ -5,7 +5,7 @@ import RhymeForm from '../RhymeForm/RhymeForm';
 import SynonymForm from '../SynonymForm/SynonymForm';
 import './App.css';
 import apiCalls from '../../apiCalls';
-import { Route } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -43,6 +43,7 @@ class App extends Component {
           this.setState({ synonymSearchWord: searchInput, similarWords: data.synonyms })
         })
         .catch(err => {
+          this.setState({ error: true })
 	        console.error(err);
         });
     }  
@@ -55,18 +56,36 @@ class App extends Component {
         this.setState({ rhymeSearchWord: searchInput, rhymingWords: data.rhymes.all })
       })
       .catch(err => {
+        this.setState({ error: true })
 	      console.error(err);
       });
     }
   }
+//render if error is true
+//render loading component
 
   render() {
     return (
       <main>
         <h1 className='title'>Lyric Lava</h1>
+        <Switch>
         <Route
           exact
           path='/'
+          render={ () => {
+            return (
+              <section className="welcomePage">
+                <h1>Let your ideas flow.</h1>
+                <Link to='/prompts'>
+                  <p>Here</p>
+                </Link>
+              </section>
+            )
+          }}
+        />
+        <Route 
+          exact
+          patch='/prompts'
           render={ () => {
             return (
               <section className="selectionContainer">
@@ -86,7 +105,8 @@ class App extends Component {
             )
           }}
         />
-
+        </Switch>
+        
         <section className='resultsDisplay'>
           {this.state.prompt && 
             <div className='promptDisplay'>
