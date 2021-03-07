@@ -2,7 +2,7 @@ import React from 'react';
 import './WordList.css';
 import { Link } from 'react-router-dom';
 
-const WordList = ({word, wordResults, type}) => {
+const WordList = ({word, wordResults, type, handleClick}) => {
     if (type === 'rhymes') {
         return (
           <div className='resultsContainer'>
@@ -13,7 +13,7 @@ const WordList = ({word, wordResults, type}) => {
               ))}
             </section>
             <Link to='/home'>
-                <button>Home</button>
+                <button onClick={handleClick}>Home</button>
             </Link>
           </div>
         )
@@ -27,7 +27,7 @@ const WordList = ({word, wordResults, type}) => {
               ))}
             </section>
             <Link to='/home'>
-                <button>Home</button>
+                <button onClick={handleClick}>Home</button>
             </Link>
           </div>
         )
