@@ -27,7 +27,7 @@ const WordList = ({word, wordResults, type}) => {
               ))}
             </section>
             <Link to='/home'>
-                <button>Home</button>
+                <button className='listButton'>Home</button>
             </Link>
           </div>
         )

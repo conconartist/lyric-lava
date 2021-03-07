@@ -120,7 +120,7 @@ class App extends Component {
                   </div>
                 </section>   
                 <section className='resultsDisplay'>
-                  {this.state.fetchingSynonyms && <Load />}
+                  {this.state.fetchingSynonyms && <Load /> || this.state.fetchingRhymes && <Load />}
                   {this.state.synonymSearchWord && this.state.similarWords === undefined && <Error type='synonyms' />}
                   {this.state.similarWords !== undefined && this.state.similarWords.length !== 0 && 
                     <FormResults
@@ -129,7 +129,7 @@ class App extends Component {
                       type='synonyms'
                     />
                   }
-                  {this.state.fetchingRhymes && <Load />}
+                  
                   {this.state.rhymeSearchWord && this.state.rhymingWords === undefined && <Error type='rhymes' />}
                   {this.state.rhymingWords !== undefined && this.state.rhymingWords.length !== 0 &&
                     <FormResults
