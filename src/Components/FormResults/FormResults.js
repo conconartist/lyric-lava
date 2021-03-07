@@ -9,8 +9,8 @@ const FormResults = ({ word, wordResults, type}) => {
       <div className='resultsContainer'>
         <h3 className='resultsHeading'> Words that rhyme with "{word}": </h3>
         <section className='resultsList'>
-          {wordResults && wordResults.map((word, index) => (
-            <p key={index} className='rhymeWord'>{word}</p>
+          {wordResults && wordResults.map((rhymeWord, index) => (
+            <p key={index} className='rhymeWord'>{rhymeWord}</p>
           ))}
         </section>
       </div>
@@ -20,12 +20,14 @@ const FormResults = ({ word, wordResults, type}) => {
       <div className='resultsContainer'>
         <h3 className='resultsHeading'> Words that rhyme with "{word}": </h3>
         <section className='resultsList'>
-          {wordResults && wordResults.slice(0, 10).map((word, index) => (
-            <p key={index} className='rhymeWord'>{word}</p>
+          {wordResults && wordResults.slice(0, 10).map((rhymeWord, index) => (
+            <p key={index} className='rhymeWord'>{rhymeWord}</p>
           ))}
         </section>
-        <Link to='/results'>
-          <button onClick={() => <WordList key={word} word={word} wordResults={wordResults} type={type}/>}>Click to see all results</button>
+        <Link to='/rhymes'>
+          <button>
+            Click to see all results 
+          </button>
         </Link>
       </div>
     )
@@ -34,8 +36,8 @@ const FormResults = ({ word, wordResults, type}) => {
       <div className="resultsContainer">
         <h3 className="resultsHeading">Words that are similar to "{word}":</h3>
         <section className="resultsList">
-          {wordResults && wordResults.map((word, index) => (
-            <p key={index} className='synonymWord'>{word}</p>
+          {wordResults && wordResults.map((synonymWord, index) => (
+            <p key={index} className='synonymWord'>{synonymWord}</p>
           ))}
         </section>
       </div>
@@ -45,14 +47,15 @@ const FormResults = ({ word, wordResults, type}) => {
       <div className='resultsContainer'>
         <h3 className='resultsHeading'> Words that are similar to "{word}": </h3>
         <section className='resultsList'>
-          {wordResults && wordResults.slice(0, 10).map((word, index) => (
-            <p key={index} className='synonymWord'>{word}</p>
+          {wordResults && wordResults.slice(0, 10).map((synonymWord, index) => (
+            <p key={index} className='synonymWord'>{synonymWord}</p>
           ))}
         </section>
-        <Link to='/results'>
-          <button onClick={() => <WordList key={word} word={word} wordResults={wordResults} type={type}/>}>Click to see all results</button>
+        <Link to='/synonyms'>
+          <button>
+            Click to see all results
+          </button>
         </Link>
-       
       </div>  
     )        
   } else {
