@@ -77,6 +77,21 @@ class App extends Component {
     return (
       <main>
         <h1 className='title'>Lyric Lava</h1>
+        <section className="selectionContainer">
+          <Prompt 
+            clickForPrompt={this.clickForPrompt} 
+            prompt={this.state.prompt}
+          />
+          <div className='formContainer'>
+            <SynonymForm 
+              searchForSimilar={this.searchForSimilar}
+            />
+            <RhymeForm
+              searchForRhymes={this.searchForRhymes}
+            />
+          </div>
+        </section>
+        
         <section className='resultsDisplay'>
           {this.state.prompt && 
             <div className='promptDisplay'>
@@ -100,21 +115,6 @@ class App extends Component {
             /> 
           }
         </section>
-        <section className="selectionContainer">
-          <Prompt 
-            clickForPrompt={this.clickForPrompt} 
-            prompt={this.state.prompt}
-          />
-          <div className='formContainer'>
-            <SynonymForm 
-              searchForSimilar={this.searchForSimilar}
-            />
-            <RhymeForm
-              searchForRhymes={this.searchForRhymes}
-            />
-          </div>
-        </section>
-        
         
       </main>
     )
