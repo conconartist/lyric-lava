@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Load from '../Load/Load';
+import Error from '../Error/Error';
 import Prompt from '../Prompt/Prompt';
 import FormResults from '../FormResults/FormResults';
 import RhymeForm from '../RhymeForm/RhymeForm';
@@ -7,7 +8,7 @@ import SynonymForm from '../SynonymForm/SynonymForm';
 import WordList from '../WordList/WordList';
 import './App.css';
 import apiCalls from '../../apiCalls';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -68,11 +69,6 @@ class App extends Component {
       });
     }
   }
-//render if error is true
-//render loading component
-  handleClick = () => {
-    this.setState({fetchingRhymes: false, fetchingSynonyms: false})
-  }
 
   addToFavorites = () => {
     this.setState({favoritePrompts: [...this.state.favoritePrompts, this.state.prompt]})
@@ -82,8 +78,6 @@ class App extends Component {
     return (
       <main>
         <h1 className='title'>Lyric Lava</h1>
-        {/* //refactor to another component
-        {this.state.favoritePrompts && <h2>{this.state.favoritePrompts}</h2>} */}
         <Route
           exact
           path='/'
@@ -106,28 +100,29 @@ class App extends Component {
             return (
               <div className='homePage'>
                 {/* //add nav bar to show favorites and home button */}
+                {this.state.error && <h2>Something went wrong.  Try again.</h2>}
                 <section className="selectionContainer">
-                  {/* add error handling for prompt */}
                   {this.state.fetchingPrompt && <Load />}
-                <Prompt 
-                  clickForPrompt={this.clickForPrompt} 
-                  prompt={this.state.prompt}
-                />
-                <button className='favoritesButton' onClick={this.addToFavorites}>
-                  Add to Favorites
-                </button>
-                <div className='formContainer'>
-                  <SynonymForm 
-                    searchForSimilar={this.searchForSimilar}
+                  <Prompt 
+                    clickForPrompt={this.clickForPrompt} 
+                    prompt={this.state.prompt}
                   />
-                  <RhymeForm
-                    searchForRhymes={this.searchForRhymes}
-                  />
-                </div>
+                  <button className='favoritesButton' onClick={this.addToFavorites}>
+                    Add to Favorites
+                  </button>
+                  <div className='formContainer'>
+                    <SynonymForm 
+                      searchForSimilar={this.searchForSimilar}
+                    />
+                    <RhymeForm
+                      searchForRhymes={this.searchForRhymes}
+                    />
+                  </div>
                 </section>   
                 <section className='resultsDisplay'>
                   {this.state.fetchingSynonyms && <Load />}
-                  {this.state.similarWords.length !== 0 && 
+                  {this.state.synonymSearchWord && this.state.similarWords === undefined && <Error type='synonyms' />}
+                  {this.state.similarWords !== undefined && this.state.similarWords.length !== 0 && 
                     <FormResults
                       word={this.state.synonymSearchWord}
                       wordResults={this.state.similarWords}
@@ -135,7 +130,8 @@ class App extends Component {
                     />
                   }
                   {this.state.fetchingRhymes && <Load />}
-                  {this.state.rhymingWords.length !== 0 &&
+                  {this.state.rhymeSearchWord && this.state.rhymingWords === undefined && <Error type='rhymes' />}
+                  {this.state.rhymingWords !== undefined && this.state.rhymingWords.length !== 0 &&
                     <FormResults
                       word={this.state.rhymeSearchWord}
                       wordResults={this.state.rhymingWords}
@@ -161,7 +157,6 @@ class App extends Component {
             word={this.state.rhymeSearchWord}
             wordResults={this.state.rhymingWords}
             type='rhymes'
-            handleClick={this.handleClick}
           />
         </Route>
       </main>
