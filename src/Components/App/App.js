@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Load from '../Load/Load';
 import Prompt from '../Prompt/Prompt';
 import FormResults from '../FormResults/FormResults';
 import RhymeForm from '../RhymeForm/RhymeForm';
@@ -25,41 +26,44 @@ class App extends Component {
   }
 
   clickForPrompt = () => {
+    this.setState({fetchingPrompt: true})
     apiCalls.getPrompt()
     .then((data) => { 
       if (data.examples.length === 0) {
-        this.setState({ prompt: data.word })
+        this.setState({ prompt: data.word, fetchingPrompt: false })
       } else {
-        this.setState({ prompt: data.examples[0]})
+        this.setState({ prompt: data.examples[0], fetchingPrompt: false })
       }
     })
     .catch(err => {
-      this.setState({ error: true })
+      this.setState({ error: true, fetchingPrompt: false})
 	    console.error(err);
     });
   }
 
   searchForSimilar = (searchInput) => {
+    this.setState({fetchingSynonyms: true})
     if(searchInput) {
       apiCalls.getSynonyms(searchInput)
         .then(data => {
-          this.setState({ synonymSearchWord: searchInput, similarWords: data.synonyms, fetchingSynonyms: true })
+          this.setState({ synonymSearchWord: searchInput, similarWords: data.synonyms, fetchingSynonyms: false })
         })
         .catch(err => {
-          this.setState({ error: true })
+          this.setState({ error: true, fetchingSynonyms: false })
 	        console.error(err);
         });
     }  
   }
 
   searchForRhymes = (searchInput) => {
+    this.setState({fetchingRhymes: true})
     if(searchInput) {
       apiCalls.getRhymes(searchInput)
       .then(data => {
-        this.setState({ rhymeSearchWord: searchInput, rhymingWords: data.rhymes.all, fetchingRhymes: true })
+        this.setState({ rhymeSearchWord: searchInput, rhymingWords: data.rhymes.all, fetchingRhymes: false })
       })
       .catch(err => {
-        this.setState({ error: true })
+        this.setState({ error: true, fetchingRhymes: false })
 	      console.error(err);
       });
     }
@@ -101,7 +105,10 @@ class App extends Component {
           render={ () => {
             return (
               <div className='homePage'>
+                {/* //add nav bar to show favorites and home button */}
                 <section className="selectionContainer">
+                  {/* add error handling for prompt */}
+                  {this.state.fetchingPrompt && <Load />}
                 <Prompt 
                   clickForPrompt={this.clickForPrompt} 
                   prompt={this.state.prompt}
@@ -119,14 +126,16 @@ class App extends Component {
                 </div>
                 </section>   
                 <section className='resultsDisplay'>
-                  {this.state.fetchingSynonyms && this.state.similarWords && 
+                  {this.state.fetchingSynonyms && <Load />}
+                  {this.state.similarWords.length !== 0 && 
                     <FormResults
                       word={this.state.synonymSearchWord}
                       wordResults={this.state.similarWords}
                       type='synonyms'
                     />
                   }
-                  {this.state.fetchingRhymes && this.state.rhymingWords &&
+                  {this.state.fetchingRhymes && <Load />}
+                  {this.state.rhymingWords.length !== 0 &&
                     <FormResults
                       word={this.state.rhymeSearchWord}
                       wordResults={this.state.rhymingWords}
