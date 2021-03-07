@@ -100,7 +100,7 @@ class App extends Component {
             return (
               <div className='homePage'>
                 {/* //add nav bar to show favorites and home button */}
-                {this.state.error && <h2>Something went wrong.  Try again.</h2>}
+                {this.state.error && <h2>Happy accidents. Embrace the mistakes. Try again.</h2>}
                 <section className="selectionContainer">
                   {this.state.fetchingPrompt && <Load />}
                   <Prompt 
