@@ -3,8 +3,8 @@ import './Load.css';
 
 const Load = () => {
     return (
-        <section className='loading-message'>
-            <h2 className='loading-text'>Loading...</h2>
+        <section className='loadingMessage'>
+            <h2 className='loadingText'>Loading...</h2>
         </section>
     )
 }

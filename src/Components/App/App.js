@@ -38,7 +38,7 @@ class App extends Component {
     })
     .catch(err => {
       this.setState({ error: true, fetchingPrompt: false})
-	    console.error(err);
+	    console.error("Something went wrong. Please try again.");
     });
   }
 
@@ -51,7 +51,7 @@ class App extends Component {
         })
         .catch(err => {
           this.setState({ error: true, fetchingSynonyms: false })
-	        console.error(err);
+	        console.error("Something went wrong. Please try again.");
         });
     }  
   }
@@ -65,7 +65,7 @@ class App extends Component {
       })
       .catch(err => {
         this.setState({ error: true, fetchingRhymes: false })
-	      console.error(err);
+	      console.error("Something went wrong. Please try again.");
       });
     }
   }
@@ -86,7 +86,7 @@ class App extends Component {
               <section className="welcomePage">
                 <h1>Let your ideas flow.</h1>
                 <Link to='/home'>
-                  <p>Here</p>
+                  <p className='enterButton'>Here</p>
                 </Link>
               </section>
             )
@@ -120,7 +120,7 @@ class App extends Component {
                   </div>
                 </section>   
                 <section className='resultsDisplay'>
-                  {this.state.fetchingSynonyms && <Load />}
+                  {this.state.fetchingSynonyms && <Load /> || this.state.fetchingRhymes && <Load />}
                   {this.state.synonymSearchWord && this.state.similarWords === undefined && <Error type='synonyms' />}
                   {this.state.similarWords !== undefined && this.state.similarWords.length !== 0 && 
                     <FormResults
@@ -129,7 +129,7 @@ class App extends Component {
                       type='synonyms'
                     />
                   }
-                  {this.state.fetchingRhymes && <Load />}
+                  
                   {this.state.rhymeSearchWord && this.state.rhymingWords === undefined && <Error type='rhymes' />}
                   {this.state.rhymingWords !== undefined && this.state.rhymingWords.length !== 0 &&
                     <FormResults
