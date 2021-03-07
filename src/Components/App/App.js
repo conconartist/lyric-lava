@@ -105,26 +105,26 @@ class App extends Component {
                 </div>
                 </section>   
                 <section className='resultsDisplay'>
-                {this.state.prompt && 
-                  <div className='promptDisplay'>
-                    <h3 className='promptHeading'>Your prompt:</h3>
-                    <p>{this.state.prompt}</p>
-                  </div>
-                }
-                {this.state.similarWords && 
-                  <FormResults
-                    word={this.state.synonymSearchWord}
-                    wordResults={this.state.similarWords}
-                    type='synonyms'
-                  />
-                }
-                {this.state.rhymingWords &&
-                  <FormResults
-                    word={this.state.rhymeSearchWord}
-                    wordResults={this.state.rhymingWords}
-                    type='rhymes'
-                  /> 
-                }
+                  {this.state.prompt && 
+                    <Prompt 
+                      clickForPrompt={this.clickForPrompt}
+                      prompt={this.state.prompt}
+                    />
+                  }
+                  {this.state.similarWords && 
+                    <FormResults
+                      word={this.state.synonymSearchWord}
+                      wordResults={this.state.similarWords}
+                      type='synonyms'
+                    />
+                  }
+                  {this.state.rhymingWords &&
+                    <FormResults
+                      word={this.state.rhymeSearchWord}
+                      wordResults={this.state.rhymingWords}
+                      type='rhymes'
+                    /> 
+                  }
                 </section>
               </div>
             )
