@@ -9,7 +9,7 @@ const Prompt = ({ clickForPrompt, prompt }) => {
       </div>
       <div className='promptDisplay'>
         <h3 className='promptHeading'>Your prompt:</h3>
-        <p>{prompt}</p>
+        <p className='promptResult'>{prompt}</p>
       </div>
     </React.Fragment>
   ) 

@@ -3,6 +3,7 @@ describe('Main Display', () => {
 
     beforeEach(() => {
         cy.visit(url)
+        cy.get('.enterButton').click()
     })
 
     it('should be able to visit the url and see the title of the app', () => {
@@ -12,36 +13,35 @@ describe('Main Display', () => {
         
     it('should be able to click on the button to take you to the home page with visible prompt button and search bars', () => {
         cy
-        .get('.enterButton').click()
         .get('.prompt').should('be.visible')
         .get('.synonymSearchForm').should('be.visible')
         .get('.rhymeSearchForm').should('be.visible')
     })
 
     it('should take you to a new url when the button is clicked', () => {
-
+        cy
+        .location('pathname').should('eq', '/home')
     })
-
+    it('should display a loading message when the button is rendering a prompt', () => {
+        cy
+        .get('.prompt').click()
+        .get('.loadingMessage > .loadingText').should('contain', "Loading")
+    })
     it('should display a prompt when you press the prompt button', () => {
         cy
-        .get('h3').should('contain', '')
         .get('.prompt').click()
-        expect('h3').to.be.a('string')
-        expect('h3').to.not.equal(undefined)
+        expect('.promptDisplay > .promptResult').to.be.a('string')
+        expect('.promptDisplay > .promptResult').to.not.equal(undefined)
     })
 
     it('should display a search bar to find rhyming words', () => {
         cy
-        .get('.rhymingWordsForm').should('be.visible')
+        .get('.rhymeWordsForm').should('be.visible')
     })
 
     it('should display a search bar for similar words', () => {
         cy
         .get('.similarWordsForm').should('be.visible')
-    })
-
-    it('should display a loading image when the button is rendering a prompt', () => {
-
     })
 
     it('should display an error message if a word does not display when the prompt button is clicked', () => {

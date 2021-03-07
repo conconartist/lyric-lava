@@ -8,7 +8,6 @@ const RhymeForm = ( { searchForRhymes }) => {
         setUserInput(event.target.value)
         searchForRhymes(userInput)
     }
-//if more than 10 results, display first 10, click option for more on separate page 
     return (
         <div className='rhymeSearchForm'>
             <form className='rhymeWordsForm'>
