@@ -105,12 +105,6 @@ class App extends Component {
                 </div>
                 </section>   
                 <section className='resultsDisplay'>
-                  {this.state.prompt && 
-                    <Prompt 
-                      clickForPrompt={this.clickForPrompt}
-                      prompt={this.state.prompt}
-                    />
-                  }
                   {this.state.similarWords && 
                     <FormResults
                       word={this.state.synonymSearchWord}
@@ -139,7 +133,7 @@ class App extends Component {
         </Route> 
         <Route path='/rhymes'>
           <WordList
-            word={this.state.rhymingWords}
+            word={this.state.rhymeSearchWord}
             wordResults={this.state.rhymingWords}
             type='rhymes'
           />
