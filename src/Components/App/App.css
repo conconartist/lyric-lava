@@ -1,20 +1,39 @@
+button {
+  color: hotpink;
+  height: 4vh;
+}
 .formContainer {
   display: flex;
+  flex-direction: column;
+  margin: 2em;
+  width: 40vw;
 }
+
 main {
   align-items: center;
   background-color: black;
   color: pink;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
 }
 
 h1 {
+  align-items: center;
   border: white solid 2px;
+  display: flex;
   font-size: 5em;
-  height: 20vh;
+  height: 15vh;
+  margin-bottom: 3%;
+  padding: 2%;
+  margin-top: 2%;
 }
+
+input {
+  color: indianred;
+  height: 4vh;
+}
+
 p {
   border: white solid 2px;
   color:cornsilk;
@@ -22,8 +41,13 @@ p {
 
 .selectionContainer {
   align-items: center;
+  border: white solid 2px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 1em;
+  padding: 2em;
+  padding-bottom: 0;
+  width: 64vw;
 }
 
 .promptDisplay {
@@ -31,9 +55,15 @@ p {
   align-items: center;
   display: flex;
   flex-direction: column;
+  margin: 1em;
+  padding: 1em;
 }
+
 .resultsDisplay {
+  align-items: center;
   border: white solid 2px;
   display: flex;
   flex-direction: column;
+  width: 70vw;
 }
+
