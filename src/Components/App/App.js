@@ -17,7 +17,8 @@ class App extends Component {
       synonymSearchWord: "",
       rhymingWords: [],
       similarWords: [], 
-      isFetching: false,
+      fetchingRhymes: false,
+      fetchingSynonyms: false,
       error: false
     }
   }
@@ -41,7 +42,7 @@ class App extends Component {
     if(searchInput) {
       apiCalls.getSynonyms(searchInput)
         .then(data => {
-          this.setState({ synonymSearchWord: searchInput, similarWords: data.synonyms })
+          this.setState({ synonymSearchWord: searchInput, similarWords: data.synonyms, fetchingSynonyms: true })
         })
         .catch(err => {
           this.setState({ error: true })
@@ -54,7 +55,7 @@ class App extends Component {
     if(searchInput) {
       apiCalls.getRhymes(searchInput)
       .then(data => {
-        this.setState({ rhymeSearchWord: searchInput, rhymingWords: data.rhymes.all })
+        this.setState({ rhymeSearchWord: searchInput, rhymingWords: data.rhymes.all, fetchingRhymes: true })
       })
       .catch(err => {
         this.setState({ error: true })
@@ -64,7 +65,9 @@ class App extends Component {
   }
 //render if error is true
 //render loading component
-
+  handleClick = () => {
+    this.setState({fetchingRhymes: false, fetchingSynonyms: false})
+  }
   render() {
     return (
       <main>
@@ -84,6 +87,7 @@ class App extends Component {
             )
           }}
         />
+
         <Route 
           exact
           path='/home'
@@ -105,14 +109,14 @@ class App extends Component {
                 </div>
                 </section>   
                 <section className='resultsDisplay'>
-                  {this.state.similarWords && 
+                  {this.state.fetchingSynonyms && this.state.similarWords && 
                     <FormResults
                       word={this.state.synonymSearchWord}
                       wordResults={this.state.similarWords}
                       type='synonyms'
                     />
                   }
-                  {this.state.rhymingWords &&
+                  {this.state.fetchingRhymes && this.state.rhymingWords &&
                     <FormResults
                       word={this.state.rhymeSearchWord}
                       wordResults={this.state.rhymingWords}
@@ -124,6 +128,7 @@ class App extends Component {
             )
           }}
         />
+
         <Route path='/synonyms'>
           <WordList 
             word={this.state.synonymSearchWord}
@@ -131,11 +136,13 @@ class App extends Component {
             type='synonyms'
           />
         </Route> 
+
         <Route path='/rhymes'>
           <WordList
             word={this.state.rhymeSearchWord}
             wordResults={this.state.rhymingWords}
             type='rhymes'
+            handleClick={this.handleClick}
           />
         </Route>
       </main>

@@ -1,5 +1,4 @@
 import React from 'react';
-import WordList from '../WordList/WordList';
 import './FormResults.css';
 import { Link } from 'react-router-dom';
 
@@ -59,7 +58,9 @@ const FormResults = ({ word, wordResults, type}) => {
       </div>  
     )        
   } else {
-    return null;
+    return (
+      null
+    )
   }
 }
 export default FormResults;
