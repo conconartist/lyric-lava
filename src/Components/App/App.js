@@ -91,7 +91,7 @@ class App extends Component {
             />
           </div>
         </section>
-        
+
         <section className='resultsDisplay'>
           {this.state.prompt && 
             <div className='promptDisplay'>

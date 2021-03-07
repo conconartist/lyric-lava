@@ -1,10 +1,12 @@
 button {
   color: hotpink;
+  height: 4vh;
 }
 .formContainer {
   display: flex;
   flex-direction: column;
   margin: 2em;
+  width: 40vw;
 }
 
 main {
@@ -24,10 +26,12 @@ h1 {
   height: 15vh;
   margin-bottom: 3%;
   padding: 2%;
+  margin-top: 2%;
 }
 
 input {
   color: indianred;
+  height: 4vh;
 }
 
 p {
@@ -43,7 +47,7 @@ p {
   margin-bottom: 1em;
   padding: 2em;
   padding-bottom: 0;
-  width: 70vw;
+  width: 50vw;
 }
 
 .promptDisplay {
