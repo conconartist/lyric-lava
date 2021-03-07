@@ -38,7 +38,7 @@ class App extends Component {
     })
     .catch(err => {
       this.setState({ error: true, fetchingPrompt: false})
-	    console.error(err);
+	    console.error("Something went wrong. Please try again.");
     });
   }
 
@@ -51,7 +51,7 @@ class App extends Component {
         })
         .catch(err => {
           this.setState({ error: true, fetchingSynonyms: false })
-	        console.error(err);
+	        console.error("Something went wrong. Please try again.");
         });
     }  
   }
@@ -65,7 +65,7 @@ class App extends Component {
       })
       .catch(err => {
         this.setState({ error: true, fetchingRhymes: false })
-	      console.error(err);
+	      console.error("Something went wrong. Please try again.");
       });
     }
   }

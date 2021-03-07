@@ -14,6 +14,7 @@ const SynonymForm = ( { searchForSimilar }) => {
     <div className='synonymSearchForm'>
       <form className='similarWordsForm'>
         <input
+          className='synonymSearchBar'
           type='text'
           placeholder='Enter Word'
           value={userInput}

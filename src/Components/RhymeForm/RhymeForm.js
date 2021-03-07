@@ -12,6 +12,7 @@ const RhymeForm = ( { searchForRhymes }) => {
         <div className='rhymeSearchForm'>
             <form className='rhymeWordsForm'>
                 <input
+                  className='rhymeSearchBar'
                   type='text'
                   placeholder='Enter Word'
                   value={userInput}
