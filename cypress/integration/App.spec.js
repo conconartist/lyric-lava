@@ -15,7 +15,7 @@ describe('Main Display', () => {
         .get('.enterButton').click()
         .get('.prompt').should('be.visible')
         .get('.synonymSearchForm').should('be.visible')
-        .get('rhymeSearchForm').should('be.visible')
+        .get('.rhymeSearchForm').should('be.visible')
     })
 
     it('should take you to a new url when the button is clicked', () => {
