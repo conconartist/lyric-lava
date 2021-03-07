@@ -19,6 +19,7 @@ class App extends Component {
       similarWords: [], 
       fetchingRhymes: false,
       fetchingSynonyms: false,
+      favoritePrompts: [],
       error: false
     }
   }
@@ -68,11 +69,17 @@ class App extends Component {
   handleClick = () => {
     this.setState({fetchingRhymes: false, fetchingSynonyms: false})
   }
+
+  addToFavorites = () => {
+    this.setState({favoritePrompts: [...this.state.favoritePrompts, this.state.prompt]})
+  }
+
   render() {
     return (
       <main>
         <h1 className='title'>Lyric Lava</h1>
-
+        {/* //refactor to another component
+        {this.state.favoritePrompts && <h2>{this.state.favoritePrompts}</h2>} */}
         <Route
           exact
           path='/'
@@ -99,6 +106,9 @@ class App extends Component {
                   clickForPrompt={this.clickForPrompt} 
                   prompt={this.state.prompt}
                 />
+                <button className='favoritesButton' onClick={this.addToFavorites}>
+                  Add to Favorites
+                </button>
                 <div className='formContainer'>
                   <SynonymForm 
                     searchForSimilar={this.searchForSimilar}

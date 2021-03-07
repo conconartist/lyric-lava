@@ -2,7 +2,6 @@ import React from 'react';
 import './Prompt.css';
 
 const Prompt = ({ clickForPrompt, prompt }) => {
-
   return (
     <React.Fragment>
       <div className='prompt' onClick={clickForPrompt}>
