@@ -86,7 +86,7 @@ class App extends Component {
               <section className="welcomePage">
                 <h1>Let your ideas flow.</h1>
                 <Link to='/home'>
-                  <p>Here</p>
+                  <p className='enterButton'>Here</p>
                 </Link>
               </section>
             )
