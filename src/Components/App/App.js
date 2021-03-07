@@ -5,6 +5,7 @@ import RhymeForm from '../RhymeForm/RhymeForm';
 import SynonymForm from '../SynonymForm/SynonymForm';
 import './App.css';
 import apiCalls from '../../apiCalls';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -77,20 +78,28 @@ class App extends Component {
     return (
       <main>
         <h1 className='title'>Lyric Lava</h1>
-        <section className="selectionContainer">
-          <Prompt 
-            clickForPrompt={this.clickForPrompt} 
-            prompt={this.state.prompt}
-          />
-          <div className='formContainer'>
-            <SynonymForm 
-              searchForSimilar={this.searchForSimilar}
-            />
-            <RhymeForm
-              searchForRhymes={this.searchForRhymes}
-            />
-          </div>
-        </section>
+        <Route
+          exact
+          path='/'
+          render={ () => {
+            return (
+              <section className="selectionContainer">
+              <Prompt 
+                clickForPrompt={this.clickForPrompt} 
+                prompt={this.state.prompt}
+              />
+              <div className='formContainer'>
+                <SynonymForm 
+                  searchForSimilar={this.searchForSimilar}
+                />
+                <RhymeForm
+                  searchForRhymes={this.searchForRhymes}
+                />
+              </div>
+              </section>
+            )
+          }}
+        />
 
         <section className='resultsDisplay'>
           {this.state.prompt && 
