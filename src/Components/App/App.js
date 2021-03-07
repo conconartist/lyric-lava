@@ -3,6 +3,7 @@ import Prompt from '../Prompt/Prompt';
 import FormResults from '../FormResults/FormResults';
 import RhymeForm from '../RhymeForm/RhymeForm';
 import SynonymForm from '../SynonymForm/SynonymForm';
+import WordList from '../WordList/WordList';
 import './App.css';
 import apiCalls from '../../apiCalls';
 import { Route, Link, Switch } from 'react-router-dom';
@@ -68,7 +69,7 @@ class App extends Component {
     return (
       <main>
         <h1 className='title'>Lyric Lava</h1>
-        <Switch>
+
         <Route
           exact
           path='/'
@@ -76,7 +77,7 @@ class App extends Component {
             return (
               <section className="welcomePage">
                 <h1>Let your ideas flow.</h1>
-                <Link to='/prompts'>
+                <Link to='/home'>
                   <p>Here</p>
                 </Link>
               </section>
@@ -85,52 +86,72 @@ class App extends Component {
         />
         <Route 
           exact
-          patch='/prompts'
+          path='/home'
           render={ () => {
             return (
-              <section className="selectionContainer">
-              <Prompt 
-                clickForPrompt={this.clickForPrompt} 
-                prompt={this.state.prompt}
-              />
-              <div className='formContainer'>
-                <SynonymForm 
-                  searchForSimilar={this.searchForSimilar}
+              <div className='homePage'>
+                <section className="selectionContainer">
+                <Prompt 
+                  clickForPrompt={this.clickForPrompt} 
+                  prompt={this.state.prompt}
                 />
-                <RhymeForm
-                  searchForRhymes={this.searchForRhymes}
-                />
+                <div className='formContainer'>
+                  <SynonymForm 
+                    searchForSimilar={this.searchForSimilar}
+                  />
+                  <RhymeForm
+                    searchForRhymes={this.searchForRhymes}
+                  />
+                </div>
+                </section>   
+                <section className='resultsDisplay'>
+                {this.state.prompt && 
+                  <div className='promptDisplay'>
+                    <h3 className='promptHeading'>Your prompt:</h3>
+                    <p>{this.state.prompt}</p>
+                  </div>
+                }
+                {this.state.similarWords && 
+                  <FormResults
+                    word={this.state.synonymSearchWord}
+                    wordResults={this.state.similarWords}
+                    type='synonyms'
+                  />
+                }
+                {this.state.rhymingWords &&
+                  <FormResults
+                    word={this.state.rhymeSearchWord}
+                    wordResults={this.state.rhymingWords}
+                    type='rhymes'
+                  /> 
+                }
+                </section>
               </div>
-              </section>
             )
           }}
         />
-        </Switch>
-        
-        <section className='resultsDisplay'>
-          {this.state.prompt && 
-            <div className='promptDisplay'>
-              <h3 className='promptHeading'>Your prompt:</h3>
-              <p>{this.state.prompt}</p>
-            </div>
-          }
-          {this.state.similarWords &&
-            <FormResults
-              word={this.state.synonymSearchWord}
-              wordResults={this.state.similarWords}
-              type='synonyms'
-            />
-          }
+        <Route 
+          exact
+          path='/results'
+          render={ ({match}) => {
+            console.log('match', match)
+            const whichCategory = match.params.word
+            if(this.state.rhymingWords.length >= 10 || this.state.similarWords.length >= 10) {
 
-          {this.state.rhymingWords &&
-            <FormResults
-              word={this.state.rhymeSearchWord}
-              wordResults={this.state.rhymingWords}
-              type='rhymes'
-            /> 
-          }
-        </section>
-        
+            
+            return (
+              <WordList 
+                match={match}
+                // word={word}
+                // wordResults={whichResults}
+                word={whichCategory}
+              />
+            )
+            } else {
+              return null
+            }
+          }}
+        />
       </main>
     )
   }
