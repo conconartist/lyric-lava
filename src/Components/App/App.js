@@ -130,28 +130,20 @@ class App extends Component {
             )
           }}
         />
-        <Route 
-          exact
-          path='/results'
-          render={ ({match}) => {
-            console.log('match', match)
-            const whichCategory = match.params.word
-            if(this.state.rhymingWords.length >= 10 || this.state.similarWords.length >= 10) {
-
-            
-            return (
-              <WordList 
-                match={match}
-                // word={word}
-                // wordResults={whichResults}
-                word={whichCategory}
-              />
-            )
-            } else {
-              return null
-            }
-          }}
-        />
+        <Route path='/synonyms'>
+          <WordList 
+            word={this.state.synonymSearchWord}
+            wordResults={this.state.similarWords}
+            type='synonyms'
+          />
+        </Route> 
+        <Route path='/rhymes'>
+          <WordList
+            word={this.state.rhymingWords}
+            wordResults={this.state.rhymingWords}
+            type='rhymes'
+          />
+        </Route>
       </main>
     )
   }
