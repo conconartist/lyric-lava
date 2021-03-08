@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Load from '../Load/Load';
 import Error from '../Error/Error';
+import FavoritePrompts from '../FavoritePrompts/FavoritePrompts';
 import Prompt from '../Prompt/Prompt';
 import FormResults from '../FormResults/FormResults';
 import RhymeForm from '../RhymeForm/RhymeForm';
@@ -38,7 +39,7 @@ class App extends Component {
     })
     .catch(err => {
       this.setState({ error: true, fetchingPrompt: false})
-	    console.error("Something went wrong. Please try again.");
+	    console.error("Something went wrong while fetching the prompt. Please try again.");
     });
   }
 
@@ -51,7 +52,7 @@ class App extends Component {
         })
         .catch(err => {
           this.setState({ error: true, fetchingSynonyms: false })
-	        console.error("Something went wrong. Please try again.");
+	        console.error("Something went wrong while fetching synonyms. Please try again.");
         });
     }  
   }
@@ -65,7 +66,7 @@ class App extends Component {
       })
       .catch(err => {
         this.setState({ error: true, fetchingRhymes: false })
-	      console.error("Something went wrong. Please try again.");
+	      console.error("Something went wrong while fetching rhymes. Please try again.");
       });
     }
   }
@@ -73,7 +74,11 @@ class App extends Component {
   addToFavorites = () => {
     this.setState({favoritePrompts: [...this.state.favoritePrompts, this.state.prompt]})
   }
-
+  
+  deletePrompt = (promptId) => {
+    const filteredPrompts = this.state.favoritePrompts.filter(prompt => prompt !== promptId)
+    this.setState({favoritePrompts: filteredPrompts})
+  }
   render() {
     return (
       <main>
@@ -99,17 +104,14 @@ class App extends Component {
           render={ () => {
             return (
               <div className='homePage'>
-                {/* //add nav bar to show favorites and home button */}
                 {this.state.error && <h2>Happy accidents. Embrace the mistakes. Try again.</h2>}
                 <section className="selectionContainer">
-                  {this.state.fetchingPrompt && <Load />}
+                  {this.state.fetchingPrompt && <Load type='prompt'/>}
                   <Prompt 
                     clickForPrompt={this.clickForPrompt} 
                     prompt={this.state.prompt}
+                    addToFavorites={this.addToFavorites}
                   />
-                  <button className='favoritesButton' onClick={this.addToFavorites}>
-                    Add to Favorites
-                  </button>
                   <div className='formContainer'>
                     <SynonymForm 
                       searchForSimilar={this.searchForSimilar}
@@ -120,7 +122,8 @@ class App extends Component {
                   </div>
                 </section>   
                 <section className='resultsDisplay'>
-                  {this.state.fetchingSynonyms && <Load /> || this.state.fetchingRhymes && <Load />}
+                  {this.state.fetchingSynonyms && <Load type='synonyms'/>}
+                  {this.state.fetchingRhymes && <Load type='rhymes'/>}
                   {this.state.synonymSearchWord && this.state.similarWords === undefined && <Error type='synonyms' />}
                   {this.state.similarWords !== undefined && this.state.similarWords.length !== 0 && 
                     <FormResults
@@ -129,7 +132,6 @@ class App extends Component {
                       type='synonyms'
                     />
                   }
-                  
                   {this.state.rhymeSearchWord && this.state.rhymingWords === undefined && <Error type='rhymes' />}
                   {this.state.rhymingWords !== undefined && this.state.rhymingWords.length !== 0 &&
                     <FormResults
@@ -157,6 +159,13 @@ class App extends Component {
             word={this.state.rhymeSearchWord}
             wordResults={this.state.rhymingWords}
             type='rhymes'
+          />
+        </Route>
+
+        <Route path='/favorite-prompts'>
+          <FavoritePrompts 
+            favPrompts={this.state.favoritePrompts}
+            deletePrompt={this.deletePrompt}
           />
         </Route>
       </main>

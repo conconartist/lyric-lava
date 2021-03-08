@@ -1,16 +1,30 @@
 import React from 'react';
 import './FormResults.css';
+import Word from '../Word/Word';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const FormResults = ({ word, wordResults, type}) => {
+  const results = wordResults.map((word, index) => {
+    return <Word 
+      id={word}
+      word={word}
+      key={index}
+    />
+  })
+  const longResults = wordResults.slice(0, 10).map((word, index) => {
+    return <Word 
+      id={word}
+      word={word}
+      key={index}
+    />
+  })
   if(type === 'rhymes' && wordResults.length <= 10) {
     return (
       <div className='resultsContainerRhymes'>
         <h3 className='resultsHeadingRhymes'> Words that rhyme with "{word}": </h3>
         <section className='resultsListRhymes'>
-          {wordResults && wordResults.map((rhymeWord, index) => (
-            <p key={index} className='rhymeWord'>{rhymeWord}</p>
-          ))}
+          {results}
         </section>
       </div>
     ) 
@@ -19,12 +33,10 @@ const FormResults = ({ word, wordResults, type}) => {
       <div className='resultsContainerRhymes'>
         <h3 className='resultsHeadingRhymes'> Words that rhyme with "{word}": </h3>
         <section className='resultsListRhymes'>
-          {wordResults && wordResults.slice(0, 10).map((rhymeWord, index) => (
-            <p key={index} className='rhymeWord'>{rhymeWord}</p>
-          ))}
+          {longResults}
         </section>
         <Link to='/rhymes'>
-          <button>
+          <button className='listButton'>
             Click to see all results 
           </button>
         </Link>
@@ -35,9 +47,7 @@ const FormResults = ({ word, wordResults, type}) => {
       <div className="resultsContainerSynonyms">
         <h3 className="resultsHeadingSynonyms">Words that are similar to "{word}":</h3>
         <section className="resultsListSynonyms">
-          {wordResults && wordResults.map((synonymWord, index) => (
-            <p key={index} className='synonymWord'>{synonymWord}</p>
-          ))}
+          {results}
         </section>
       </div>
     )
@@ -46,12 +56,10 @@ const FormResults = ({ word, wordResults, type}) => {
       <div className='resultsContainerSynonyms'>
         <h3 className='resultsHeadingSynonyms'> Words that are similar to "{word}": </h3>
         <section className='resultsListSynonyms'>
-          {wordResults && wordResults.slice(0, 10).map((synonymWord, index) => (
-            <p key={index} className='synonymWord'>{synonymWord}</p>
-          ))}
+          {longResults}
         </section>
         <Link to='/synonyms'>
-          <button>
+          <button className='listButton'>
             Click to see all results
           </button>
         </Link>
@@ -64,3 +72,9 @@ const FormResults = ({ word, wordResults, type}) => {
   }
 }
 export default FormResults;
+
+FormResults.propTypes = {
+  word: PropTypes.string,
+  wordResults: PropTypes.array,
+  type: PropTypes.string
+}

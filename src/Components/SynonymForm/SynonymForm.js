@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import './SynonymForm.css';
+import PropTypes from 'prop-types';
 
 const SynonymForm = ( { searchForSimilar }) => {
   const [userInput, setUserInput] = useState('');
   const searchSimilarWords = (event) => {
     event.preventDefault()
     setUserInput(event.target.value)
-      searchForSimilar(userInput)
+    searchForSimilar(userInput)
   }
 
   return(
-
     <div className='synonymSearchForm'>
       <form className='similarWordsForm'>
         <input
@@ -19,6 +19,8 @@ const SynonymForm = ( { searchForSimilar }) => {
           placeholder='Enter Word'
           value={userInput}
           onChange={searchSimilarWords}
+          aria-label='Search Similar Words'
+          aria-required='true'
         >
         </input>
         <button className='buttonThesaurus' onClick={searchSimilarWords} >Get Similar Words</button>
@@ -27,3 +29,7 @@ const SynonymForm = ( { searchForSimilar }) => {
   )
 }
 export default SynonymForm;
+
+SynonymForm.propTypes = {
+  searchForSimilar: PropTypes.func
+}
