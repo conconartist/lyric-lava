@@ -1,5 +1,6 @@
 import React from 'react';
 import './Load.css';
+import PropTypes from 'prop-types';
 
 const Load = ({type}) => {
     return (
@@ -10,3 +11,7 @@ const Load = ({type}) => {
 }
 
 export default Load;
+
+Load.propTypes = {
+    type: PropTypes.string
+}

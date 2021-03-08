@@ -1,5 +1,6 @@
 import React from 'react';
 import './Error.css';
+import PropTypes from 'prop-types';
 
 const Error = ({ type }) => {
   if(type === 'synonyms') {
@@ -18,3 +19,7 @@ const Error = ({ type }) => {
 }
 
 export default Error;
+
+Error.propTypes = {
+    type: PropTypes.string
+}

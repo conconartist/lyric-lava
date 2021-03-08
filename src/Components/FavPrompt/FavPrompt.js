@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
 import './FavPrompt.css';
+import PropTypes from 'prop-types';
 
 const FavPrompt = ({ id, prompt, deletePrompt }) => {
-    const [promptId, setPromptId] = useState('')
-    const deleteFavPrompt = (event) => {
-        // event.preventDefault()
-        setPromptId(event.target.id)
-        deletePrompt(promptId)
-
-    }
- return (
+  const [promptId, setPromptId] = useState('')
+  const deleteFavPrompt = (event) => {
+    setPromptId(event.target.id)
+    deletePrompt(promptId)
+  }
+  return (
     <div id={id} className='promptContainer'>
     <p className='favPrompt'>{prompt}</p>
     <button id={id} className='deleteButton' onClick={deleteFavPrompt}>Delete</button>
     </div>
- )
+  )
 }
+
 export default FavPrompt;
+
+FavPrompt.propTypes = {
+  id: PropTypes.string,
+  prompt: PropTypes.string,
+  deletePrompt: PropTypes.func
+}
