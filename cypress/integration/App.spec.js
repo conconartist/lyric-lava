@@ -203,10 +203,4 @@ describe('Main Display', () => {
             .location('pathname').should('eq', '/home')
         })
     })
-   
-   
-    
-    
-
-    
 })
