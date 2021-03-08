@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Load from '../Load/Load';
 import Error from '../Error/Error';
+import FavoritePrompts from '../FavoritePrompts/FavoritePrompts';
 import Prompt from '../Prompt/Prompt';
 import FormResults from '../FormResults/FormResults';
 import RhymeForm from '../RhymeForm/RhymeForm';
@@ -73,7 +74,11 @@ class App extends Component {
   addToFavorites = () => {
     this.setState({favoritePrompts: [...this.state.favoritePrompts, this.state.prompt]})
   }
-
+  
+  deletePrompt = (promptId) => {
+    const filteredPrompts = this.state.favoritePrompts.filter(prompt => prompt !== promptId)
+    this.setState({favoritePrompts: filteredPrompts})
+  }
   render() {
     return (
       <main>
@@ -106,10 +111,8 @@ class App extends Component {
                   <Prompt 
                     clickForPrompt={this.clickForPrompt} 
                     prompt={this.state.prompt}
+                    addToFavorites={this.addToFavorites}
                   />
-                  <button className='favoritesButton' onClick={this.addToFavorites}>
-                    Add to Favorites
-                  </button>
                   <div className='formContainer'>
                     <SynonymForm 
                       searchForSimilar={this.searchForSimilar}
@@ -129,7 +132,6 @@ class App extends Component {
                       type='synonyms'
                     />
                   }
-                  
                   {this.state.rhymeSearchWord && this.state.rhymingWords === undefined && <Error type='rhymes' />}
                   {this.state.rhymingWords !== undefined && this.state.rhymingWords.length !== 0 &&
                     <FormResults
@@ -157,6 +159,13 @@ class App extends Component {
             word={this.state.rhymeSearchWord}
             wordResults={this.state.rhymingWords}
             type='rhymes'
+          />
+        </Route>
+
+        <Route path='/favorite-prompts'>
+          <FavoritePrompts 
+            favPrompts={this.state.favoritePrompts}
+            deletePrompt={this.deletePrompt}
           />
         </Route>
       </main>
