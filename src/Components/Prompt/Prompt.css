@@ -6,5 +6,35 @@
     align-items: center;
     height: 20vh;
     justify-content: center;
-    width: 20%;
+}
+
+.promptButtonContainer {
+    display: flex;
+
+}
+
+.promptContainer {
+    border: white solid 2px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    padding: 2vh;
+    align-items: center;
+    width: 70vw;
+}
+.promptDisplay {
+    height: 10vh;
+    margin-top: 0;
+    padding: 0.3em;
+    padding-top: 0;
+    width: 40vw;
+}
+
+.promptHeading {
+    margin: 0.3em;
+}
+.promptResult {
+    border-radius: 8px;
+    margin: 0.2em;
+    padding: 0.3em;
 }

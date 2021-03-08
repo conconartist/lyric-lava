@@ -1,0 +1,10 @@
+.errorMessage {
+    border-radius: 8px;
+    border: white solid 2px;
+}
+
+.errorText {
+    border: white solid 2px;
+    border-radius: 8px;
+    padding: 0.5em;
+}

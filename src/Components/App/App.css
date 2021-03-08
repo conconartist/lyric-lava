@@ -1,12 +1,33 @@
 button {
+  border: white solid 2px;
+  border-radius: 8px;
   color: hotpink;
-  height: 4vh;
+  display: flex;
+  justify-content: center;
+  height: 5vh;
+  margin: 3px;
+  padding: 5px;
 }
+
+.enterButton {
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+  padding: 0.5em;
+}
+
+.enterButton:active {
+  color:blueviolet;
+}
+
 .formContainer {
+  border: white solid 2px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
-  margin: 2em;
-  width: 40vw;
+  margin: 1em;
+  padding: 1em;
 }
 
 main {
@@ -21,11 +42,12 @@ main {
 h1 {
   align-items: center;
   border: white solid 2px;
+  border-radius: 8px;
   display: flex;
   font-size: 5em;
   height: 15vh;
-  margin-bottom: 3%;
-  padding: 2%;
+  margin-bottom: 2%;
+  padding: 3%;
   margin-top: 2%;
 }
 
@@ -42,28 +64,62 @@ p {
 .selectionContainer {
   align-items: center;
   border: white solid 2px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   margin-bottom: 1em;
-  padding: 2em;
+  padding: 1.5em;
   padding-bottom: 0;
-  width: 64vw;
+  padding-top: 2em;
+  width: 80vw;
 }
 
 .promptDisplay {
   border: white solid 2px;
+  border-radius: 8px;
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin: 1em;
+  margin: 0.7em;
   padding: 1em;
 }
 
 .resultsDisplay {
   align-items: center;
   border: white solid 2px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
-  width: 70vw;
+  width: 80vw;
 }
 
+.welcome {
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  padding: 2%;
+  margin: 0.5em;
+  margin-left: 0;
+  width: 100%;
+}
+.welcomePage {
+  align-items: center;
+  border: white solid 2px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  width: 70vw;
+}
+.welcomeTitle {
+  height: 20vh;
+  border: white solid 2px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 2em;
+  margin: 3%;
+  padding: 1em;
+  padding-bottom: 0;
+  padding-top: 0;
+}
