@@ -24,7 +24,7 @@ const FormResults = ({ word, wordResults, type}) => {
           ))}
         </section>
         <Link to='/rhymes'>
-          <button>
+          <button className='listButton'>
             Click to see all results 
           </button>
         </Link>
@@ -51,7 +51,7 @@ const FormResults = ({ word, wordResults, type}) => {
           ))}
         </section>
         <Link to='/synonyms'>
-          <button>
+          <button className='listButton'>
             Click to see all results
           </button>
         </Link>
