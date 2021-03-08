@@ -1,9 +1,11 @@
 describe('Main Display', () => {
     const url = 'http://localhost:3000';
-
-    beforeEach(() => {
-        cy.visit(url)
-        cy.get('.enterButton').click()
+    
+    describe('Greeting', () => {
+      beforeEach(() => {
+        cy
+        .visit(url)  
+        .get('.enterButton').click()  
     })
 
     it('should be able to visit the url and see the title of the app', () => {
@@ -22,6 +24,14 @@ describe('Main Display', () => {
         cy
         .location('pathname').should('eq', '/home')
     })
+    })
+
+    describe('Main', () => {
+        beforeEach(() => {
+          cy
+          .visit(url)
+          .get('.enterButton').click()
+        })
 
     it('should display a loading message when the button is rendering a prompt', () => {
         cy
@@ -46,24 +56,10 @@ describe('Main Display', () => {
         .get('.similarWordsForm').should('be.visible')
     })
 
-    it('should display an error message if a word does not display when the prompt button is clicked', () => {
-        cy
-        .intercept({
-            "method": "GET",
-            "url": "https://wordsapiv1.p.rapidapi.com/words/?random=true",
-        }, {
-        "statusCode": 404,
-        "body": { error: "Something went wrong. Please try again." },
-        "headers": {
-          "x-rapidapi-key": "ab8f25f4e4msh6e7ff2ff1b339f9p198212jsn42fc0f56dbc6",
-          "x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
-        }
-        })
-    })
-
-    it('should display a loading message when the buttons are clicked to search for similar words', () => {
+    it('should display a loading message when the buttons are clicked to search for words', () => {
         cy
         .get('.synonymSearchBar').type('hello')
+        .wait(5000)
         .get('.buttonThesaurus').click()
         .get('.resultsDisplay > .loadingMessage').should('be.visible')
     })
@@ -72,14 +68,8 @@ describe('Main Display', () => {
         cy
         .get('.synonymSearchBar').type('hello')
         .get('.buttonThesaurus').click()
+        .wait(2000)
         .get('.resultsListSynonyms').should('contain', 'howdy')
-    })
-
-    it('should display a loading message when the buttons are clicked to search for rhyming words', () => {
-        cy
-        .get('.rhymeSearchBar').type('single')
-        .get('.buttonRhymes').click()
-        .get('.resultsDisplay > .loadingMessage').should('be.visible')
     })
 
     it('should display a list of rhyming words when a word is entered in the "get rhyming words" input field', () => {
@@ -89,42 +79,12 @@ describe('Main Display', () => {
         .get('.resultsListRhymes').should('contain', 'jingle')
     })
 
-    it('should return an error if the word is not found from searching for similar words', () => {
-        cy
-        .intercept({
-            "method": "GET",
-            "url": "https://wordsapiv1.p.rapidapi.com/words/ojojie/synonyms",
-        }, {
-        "statusCode": 404,
-        "body": { error: "Something went wrong. Please try again." },
-        "headers": {
-          "x-rapidapi-key": "ab8f25f4e4msh6e7ff2ff1b339f9p198212jsn42fc0f56dbc6",
-          "x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
-        }
-        })
-    })
-
     it('should display an error if the word is not found from searching for similar words', () => {
         cy
         .get('.synonymSearchBar').type('ojojie')
         .get('.buttonRhymes').click()
         .get('.errorMessage').should('contain', 'What a cool word!')
         .get('.errorMessage').should('be.visible')
-    })
-    
-    it('should return an error if the word is not found from searching for rhyming words', () => {
-        cy
-        .intercept({
-            "method": "GET",
-            "url": "https://wordsapiv1.p.rapidapi.com/words/zxc/rhymes",
-        }, {
-        "statusCode": 404,
-        "body": { error: "Something went wrong. Please try again." },
-        "headers": {
-          "x-rapidapi-key": "ab8f25f4e4msh6e7ff2ff1b339f9p198212jsn42fc0f56dbc6",
-          "x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
-        }
-        })
     })
 
     it('should display an error if the word is not found from searching for rhyming words', () => {
@@ -135,7 +95,6 @@ describe('Main Display', () => {
         .get('.errorMessage').should('be.visible')
     })
         
-
     it('should display a list of words and a button to click to see more results if the returning array is longer than 10 words', () => {
         cy
         .get('.rhymeSearchBar').type('single')
@@ -143,12 +102,14 @@ describe('Main Display', () => {
         .get('.resultsListRhymes > .rhymeWord').should('contain', 'bingle')
         .get('.resultsContainerRhymes > a > .listButton').should('be.visible')
     })
+
     it('should go to a different page when the "Click to See All Results" button is clicked', () => {
         cy
         .get('.rhymeSearchBar').type('single')
         .get('.buttonRhymes').click()
         .get('.listButton').click()
         .location('pathname').should('eq', '/rhymes')
+    })
     })
     
 })
