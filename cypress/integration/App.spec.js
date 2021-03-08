@@ -100,7 +100,7 @@ describe('Main Display', () => {
         cy
         .get('.rhymeSearchBar').type('single')
         .get('.buttonRhymes').click()
-        .get('.resultsListRhymes > .rhymeWord').should('contain', 'bingle')
+        .get('.resultsListRhymes > .singleWord').should('contain', 'bingle')
         .get('.resultsContainerRhymes > a > .listButton').should('be.visible')
     })
 
@@ -129,8 +129,8 @@ describe('Main Display', () => {
         .wait(5000)
         .get('.listButton').click()
         .wait(6000)
-        .get('.resultsContainer > .resultsList > .rhymeWord').should('contain', 'bingle')
-        .get('.resultsContainer > .resultsList > .rhymeWord').should('contain', 'whelk tingle')
+        .get('.resultsContainer > .resultsList > .singleWord').should('contain', 'bingle')
+        .get('.resultsContainer > .resultsList > .singleWord').should('contain', 'whelk tingle')
         })
     
     it('should display a home button when you are on the full results page', () => {

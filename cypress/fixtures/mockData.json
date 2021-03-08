@@ -1,6 +1,34 @@
 {
-"words":[
-    {
+  "words":[
+  {
+    "word":"cleaning",
+    "results":[
+      {
+        "definition":"the act of making something clean",
+        "partOfSpeech":"noun",
+        "synonyms":[
+          "cleansing",
+          "cleanup"
+        ],
+        "hasTypes":[
+          "depilation",
+          "disinfestation",
+          "dry cleaning",
+          "epilation",
+          "housecleaning",
+          "purge",
+          "purging",
+          "purification",
+          "sanitation",
+          "sanitisation",
+          "sanitization",
+          "scouring",
+          "scrub"],
+        "derivation":["clean"],
+        "examples":["clean"]
+      }]
+    },
+  {
     "word":"deerberry",
     "results":[
         {
@@ -16,10 +44,37 @@
         ]
         }
     ]
-    }],
-
+  },
+  {
+    "word":"apple grunt",
+    "pronunciation":{
+      "all":"'æpəl_grənt"
+      }
+  }, 
+  {
+    "word":"ring circuit",
+    "syllables":{
+      "count":[
+        "ring",
+        "cir",
+        "cuit"
+      ]
+    }
+  }, 
+  {
+    "word":"mamaluke",
+    "syllables":{
+      "count":3,
+      "list":[
+        "mam",
+        "a",
+        "luke"
+      ]
+    }
+    }
+  ],
 "examples": [
-    {
+  {
     "word":"happy",
     "examples":[
         "a happy outcome",
@@ -28,6 +83,48 @@
         "spent many happy days on the beach",
         "a happy marriage"
     ]
+  }, 
+  {
+    "word":"clean",
+    "examples":[
+        "he gave his shoes a good cleaning"
+    ]
   }
+  ], 
+  "synonyms": [
+    {
+    "word":"hello",
+    "synonyms":[
+    "hi",
+    "how-do-you-do",
+    "howdy",
+    "hullo"
+    ]
+    }, 
+    {
+    "word":"single",
+    "rhymes":
+      [
+        "bingle",
+        "commingle",
+        "cringle",
+        "dingle",
+        "immingle",
+        "intermingle",
+        "jingle",
+        "mingle",
+        "shingle",
+        "single",
+        "tingle",
+        "kriss kringle",
+        "all atingle",
+        "bowline cringle",
+        "crambo jingle",
+        "reef cringle",
+        "this single",
+        "whelk tingle"
+      ]
+    }
+        
 ]
 }
