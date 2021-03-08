@@ -18,6 +18,8 @@ const RhymeForm = ( { searchForRhymes }) => {
           placeholder='Enter Word'
           value={userInput}
           onChange={searchRhymingWords}
+          aria-label='Rhyme Search Form'
+          aria-required='true'
         >
         </input>
         <button className='buttonRhymes' onClick={searchRhymingWords}> Get Rhyming Words </button>
