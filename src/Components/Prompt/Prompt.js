@@ -17,7 +17,7 @@ const Prompt = ({ clickForPrompt, prompt, addToFavorites }) => {
         Add to Favorites
         </button>
         <Link to='/favorite-prompts'>
-        Favorite Prompts  
+        <button className='promptsPageButton'>Favorite Prompts </button> 
         </Link>
       </div>
       

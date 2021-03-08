@@ -19,7 +19,7 @@ const FavoritePrompts = ( {favPrompts, deletePrompt}) => {
                 ))}
             </div>
             <Link to='/home'>
-                Go back
+                <button className='homeButton'>Home</button>
             </Link>
             </React.Fragment>
         )
