@@ -1,10 +1,10 @@
 import React from 'react';
 import './Load.css';
 
-const Load = () => {
+const Load = ({type}) => {
     return (
         <section className='loadingMessage'>
-            <h2 className='loadingText'>Loading...</h2>
+            <h2 className='loadingText'>Loading {type}...</h2>
         </section>
     )
 }

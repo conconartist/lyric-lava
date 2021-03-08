@@ -1,6 +1,6 @@
 describe('Word List Display', () => {
     const url = 'http://localhost:3000';
-
+    
     it('should display a full list of words on a different page when the button to see more results is clicked', () => {
 
     })
