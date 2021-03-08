@@ -111,5 +111,74 @@ describe('Main Display', () => {
         .location('pathname').should('eq', '/rhymes')
     })
     })
+
+    describe('Word List Display', () => {
+      beforeEach(() => {
+        cy
+        .visit(url)
+        .get('.enterButton').click()
+        })
+        
+    it('should display a full list of words on a different page when the button to see more results is clicked', () => {
+        cy
+        .get('.rhymeSearchBar').type('single')
+        .get('.buttonRhymes').click()
+        .get('.listButton').click()
+        .location('pathname').should('eq', '/rhymes')
+        .get('.resultsContainer > .resultsList > .rhymeWord').should('contain', 'bingle')
+        .get('.resultsContainer > .resultsList > .rhymeWord').should('contain', 'whelk tingle')
+        })
+    
+    it('should display a home button when you are on the full results page', () => {
+        cy
+        .get('.rhymeSearchBar').type('single')
+        .get('.buttonRhymes').click()
+        .get('.listButton').click()
+        .get('.resultsContainer > a > button').should('be.visible')
+    })
+    })
+
+    describe('Favorite Prompts', () => {
+        it('should display a button to see your favorite prompts', () => {
+            cy
+            .visit(url)
+            .get('.enterButton').click()
+            .get('.promptButtonContainer > .favoritesButton').should('be.visible')
+        })
+
+        it('should let you add your favorite prompts', () => {
+            cy
+            .visit(url)
+            .get('.enterButton').click()
+            .get('.prompt').click()
+            .get('.favoritesButton').click()
+        })
+
+        beforeEach(() => {
+            cy
+            .visit(url)
+            .get('.enterButton').click()
+            .get('.prompt').click()
+            .get('.favoritesButton').click()
+            .get('.prompt').click()
+            .get('.favoritesButton').click()
+            .get('.prompt').click()
+            .get('.favoritesButton').click()
+        })
+        it('should display a list of your favorite prompts on a separate page when you click the button to see your prompts', () => {
+
+        })
+        it('should display a button to go back home on the favorite prompts page', () => {
+
+        })
+        it('should take you back to the home page when you click the home button from the prompts page', () => {
+
+        })
+    })
+   
+   
+    
+    
+
     
 })

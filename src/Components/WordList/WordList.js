@@ -12,9 +12,12 @@ const WordList = ({word, wordResults, type}) => {
                 <p key={index} className='rhymeWord'>{rhymeWord}</p>
               ))}
             </section>
-            <Link to='/home'>
-                <button>Home</button>
-            </Link>
+            <div className='homeButtonContainer'>
+              <Link to='/home'>
+                <button className='homeButton'>Home</button>
+              </Link>
+            </div>
+            
           </div>
         )
     } else if(type === 'synonyms') {
@@ -26,9 +29,9 @@ const WordList = ({word, wordResults, type}) => {
                 <p key={index} className='synonymWord'>{synonymWord}</p>
               ))}
             </section>
-            <Link to='/home'>
-                <button className='listButton'>Home</button>
-            </Link>
+              <Link to='/home'>
+                <button className='homeButton'>Home</button>
+              </Link>
           </div>
         )
     } else {
