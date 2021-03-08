@@ -177,20 +177,20 @@ describe('Main Display', () => {
 
         it('should display a list of your favorite prompts on a separate page when you click the "Favorite Prompts" button', () => {
             cy
-            .get('.promptsPageButton').click()
+            .get('.favPromptButton').click()
             .get('.favPromptsContainer').should('be.visible')
             .get('.promptContainer > .favPrompt').should('be.visible')
         })
 
         it('should have a delete button with each prompt listed', () => {
             cy
-            .get('.promptsPageButton').click()
+            .get('.favPromptButton').click()
             .get('.promptContainer > .deleteButton').should('be.visible')
         })
 
         it('should remove a prompt when you click on the delete button next to a prompt listed', () => {
             cy
-            .get('.promptsPageButton').click()
+            .get('.favPromptButton').click()
             .get('.promptContainer > .deleteButton').click({multiple:true})
             .wait(5000)
             .get('.favPromptsContainer').should('contain', '')
@@ -198,7 +198,7 @@ describe('Main Display', () => {
 
         it('should take you back to the home page when you click the home button from the prompts page', () => {
             cy
-            .get('.promptsPageButton').click()
+            .get('.favPromptButton').click()
             .get('a > .homeButton').click()
             .location('pathname').should('eq', '/home')
         })
