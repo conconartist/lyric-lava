@@ -1,20 +1,52 @@
+.favoritesButton, .promptPageButton {
+    border: none;
+    box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
+    -9px -9px 16px rgba(221, 221, 232, 0.3);
+}
+.favoritesButton:active {
+    box-shadow: none;
+}
+
+.favPromptButton:active {
+    box-shadow: none;
+}
+
+.promptPageButton:active {
+    box-shadow: none;
+}
+
 .prompt {
-    background-color: darkslateblue;
+    background-color: #a80500;
     border-radius: 50%;
+    box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
+    -9px -9px 16px rgba(221, 221, 232, 0.3);
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 20vh;
+    width: 20vw;
     justify-content: center;
 }
 
-.promptButtonContainer {
-    display: flex;
+.prompt:hover {
+    cursor:pointer;
+}
 
+.promptButtonContainer {
+    background-color: #3f5e63;
+    border-bottom: #243335;
+    border-radius: 8px;
+    border-right: #243335;
+    display: flex;
+    box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
+    -9px -9px 16px rgba(221, 221, 232, 0.3);
+    padding: 2%;
 }
 
 .promptContainer {
-    border: white solid 2px;
+    background-color: #69969c;
+    box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
+    -9px -9px 16px rgba(221, 221, 232, 0.3);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -23,18 +55,38 @@
     width: 70vw;
 }
 .promptDisplay {
-    height: 10vh;
+    background-color: #3f5e63;
+    box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
+    -9px -9px 16px rgba(221, 221, 232, 0.3);
+    border-bottom: #243335;
+    border-right: #243335;
     margin-top: 0;
-    padding: 0.3em;
     padding-top: 0;
     width: 40vw;
+    border-radius: 8px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0.7em;
+    padding: 1em;
 }
 
 .promptHeading {
+    background-color: #3f5e63;
+    color: #000000;
     margin: 0.3em;
 }
 .promptResult {
+    background-color: #fda381;
     border-radius: 8px;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.25), 
+            -30px -30px 60px rgba(255, 255, 255, 0.3);
+    color: #000000;
     margin: 0.2em;
     padding: 0.3em;
+}
+
+.promptTitle {
+    background-color: #a80500;
+    color: #fda381;
 }

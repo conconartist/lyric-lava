@@ -7,8 +7,9 @@
 }
 
 .rhymeSearchForm {
-    color:cadetblue;
-    border: white solid 2px;
+    background-color: #c9d1d5;
+    box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
+    -9px -9px 16px rgba(221, 221, 232, 0.3);
     border-radius: 8px;
     display: flex;
     justify-content: center;
@@ -19,7 +20,9 @@
 
 .rhymeWordsForm {
     align-items: center;
-    border: white solid 2px;
+    background-color: #3f5e63;
+    box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
+    -9px -9px 16px rgba(221, 221, 232, 0.3);
     border-radius: 8px;
     display: flex;
     height: 5vh;
