@@ -39,7 +39,7 @@ class App extends Component {
     })
     .catch(err => {
       this.setState({ error: true, fetchingPrompt: false})
-	    console.error("Something went wrong. Please try again.");
+	    console.error("Something went wrong while fetching the prompt. Please try again.");
     });
   }
 
@@ -52,7 +52,7 @@ class App extends Component {
         })
         .catch(err => {
           this.setState({ error: true, fetchingSynonyms: false })
-	        console.error("Something went wrong. Please try again.");
+	        console.error("Something went wrong while fetching synonyms. Please try again.");
         });
     }  
   }
@@ -66,7 +66,7 @@ class App extends Component {
       })
       .catch(err => {
         this.setState({ error: true, fetchingRhymes: false })
-	      console.error("Something went wrong. Please try again.");
+	      console.error("Something went wrong while fetching rhymes. Please try again.");
       });
     }
   }
@@ -104,7 +104,6 @@ class App extends Component {
           render={ () => {
             return (
               <div className='homePage'>
-                {/* //add nav bar to show favorites and home button */}
                 {this.state.error && <h2>Happy accidents. Embrace the mistakes. Try again.</h2>}
                 <section className="selectionContainer">
                   {this.state.fetchingPrompt && <Load type='prompt'/>}
