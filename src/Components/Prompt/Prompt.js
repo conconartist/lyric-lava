@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const Prompt = ({ clickForPrompt, prompt, addToFavorites }) => {
   return (
-    <React.Fragment>
+    <div className='promptContainer'>
       <div className='prompt' onClick={clickForPrompt}>
         <h2 className='promptTitle'>Prompt</h2>
       </div>
@@ -21,7 +21,7 @@ const Prompt = ({ clickForPrompt, prompt, addToFavorites }) => {
           <button className='promptsPageButton'>Favorite Prompts </button> 
         </Link>
       </div>
-    </React.Fragment>
+    </div>
   ) 
 }
 
