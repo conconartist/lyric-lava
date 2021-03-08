@@ -1,7 +1,19 @@
-.favPrompt {
-    color: white;
+
+
+.favPromptsTitle {
+    background-color: #c9d1d5;
+    border-radius: 8px;
+    box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
+    -9px -9px 16px rgba(221, 221, 232, 0.3);
+    color: black;
+    font-size: 2em;
+    margin: 1em;
+    padding: 1em;
+}
+.favPromptsContainer {
+    box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
+    -9px -9px 16px rgba(221, 221, 232, 0.3);
+    border-radius: 8px;
+    padding: 1em;
 }
 
-.favPromptsContainer {
-    border: white solid 2px;
-}

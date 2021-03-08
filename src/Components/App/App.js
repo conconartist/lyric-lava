@@ -89,10 +89,17 @@ class App extends Component {
           render={ () => {
             return (
               <section className="welcomePage">
-                <h1>Let your ideas flow.</h1>
-                <Link to='/home'>
-                  <p className='enterButton'>Here</p>
-                </Link>
+                <h2 className='welcomeTitle'>Let your ideas flow.</h2>
+                <div className='welcomeAffirmations'>
+                  <p className='welcome'>Take some time to create.</p>
+                  <p className='welcome'>Remove your distractions.</p>
+                  <p className='welcome'>Get settled in.</p>
+                  <p className='welcome'>Take a deep breath.</p>
+                  <p className='welcome'>Don't judge. Just write.</p>
+                  <Link to='/home'>
+                    <p className='enterButton'>Begin</p>
+                  </Link>
+                </div>
               </section>
             )
           }}
@@ -111,6 +118,7 @@ class App extends Component {
                     clickForPrompt={this.clickForPrompt} 
                     prompt={this.state.prompt}
                     addToFavorites={this.addToFavorites}
+                    favoritePrompts={this.state.FavoritePrompts}
                   />
                   <div className='formContainer'>
                     <SynonymForm 
