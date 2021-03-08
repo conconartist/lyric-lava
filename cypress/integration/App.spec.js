@@ -68,7 +68,7 @@ describe('Main Display', () => {
         cy
         .get('.synonymSearchBar').type('hello')
         .get('.buttonThesaurus').click()
-        .wait(2000)
+        .wait(5000)
         .get('.resultsListSynonyms').should('contain', 'howdy')
     })
 
@@ -76,6 +76,7 @@ describe('Main Display', () => {
         cy
         .get('.rhymeSearchBar').type('single')
         .get('.buttonRhymes').click()
+        .wait(5000)
         .get('.resultsListRhymes').should('contain', 'jingle')
     })
 
@@ -107,7 +108,9 @@ describe('Main Display', () => {
         cy
         .get('.rhymeSearchBar').type('single')
         .get('.buttonRhymes').click()
+        .wait(5000)
         .get('.listButton').click()
+        .wait(5000)
         .location('pathname').should('eq', '/rhymes')
     })
     })
@@ -123,8 +126,9 @@ describe('Main Display', () => {
         cy
         .get('.rhymeSearchBar').type('single')
         .get('.buttonRhymes').click()
+        .wait(5000)
         .get('.listButton').click()
-        .location('pathname').should('eq', '/rhymes')
+        .wait(6000)
         .get('.resultsContainer > .resultsList > .rhymeWord').should('contain', 'bingle')
         .get('.resultsContainer > .resultsList > .rhymeWord').should('contain', 'whelk tingle')
         })
@@ -133,8 +137,10 @@ describe('Main Display', () => {
         cy
         .get('.rhymeSearchBar').type('single')
         .get('.buttonRhymes').click()
+        .wait(5000)
         .get('.listButton').click()
-        .get('.resultsContainer > a > button').should('be.visible')
+        .wait(5000)
+        .get('.homeButtonContainer > a > .homeButton').should('be.visible')
     })
     })
 
@@ -159,20 +165,42 @@ describe('Main Display', () => {
             .visit(url)
             .get('.enterButton').click()
             .get('.prompt').click()
+            .wait(500)
             .get('.favoritesButton').click()
             .get('.prompt').click()
+            .wait(500)
             .get('.favoritesButton').click()
             .get('.prompt').click()
+            .wait(500)
             .get('.favoritesButton').click()
         })
-        it('should display a list of your favorite prompts on a separate page when you click the button to see your prompts', () => {
 
+        it('should display a list of your favorite prompts on a separate page when you click the "Favorite Prompts" button', () => {
+            cy
+            .get('.promptsPageButton').click()
+            .get('.favPromptsContainer').should('be.visible')
+            .get('.promptContainer > .favPrompt').should('be.visible')
         })
-        it('should display a button to go back home on the favorite prompts page', () => {
 
+        it('should have a delete button with each prompt listed', () => {
+            cy
+            .get('.promptsPageButton').click()
+            .get('.promptContainer > .deleteButton').should('be.visible')
         })
+
+        it('should remove a prompt when you click on the delete button next to a prompt listed', () => {
+            cy
+            .get('.promptsPageButton').click()
+            .get('.promptContainer > .deleteButton').click({multiple:true})
+            .wait(5000)
+            .get('.favPromptsContainer').should('contain', '')
+        })
+
         it('should take you back to the home page when you click the home button from the prompts page', () => {
-
+            cy
+            .get('.promptsPageButton').click()
+            .get('a > .homeButton').click()
+            .location('pathname').should('eq', '/home')
         })
     })
    
