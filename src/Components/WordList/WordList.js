@@ -33,11 +33,9 @@ const WordList = ({word, wordResults, type}) => {
         <section className="resultsList">
           {list}
         </section>
-        <div className='homeButtonContainer'>
           <Link to='/home'>
             <button className='homeButton'>Home</button>
           </Link>
-        </div>
       </div>
     )
   } else {

@@ -2,8 +2,9 @@ import React from 'react';
 import './Prompt.css';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import FavoritePrompts from '../FavoritePrompts/FavoritePrompts';
 
-const Prompt = ({ clickForPrompt, prompt, addToFavorites }) => {
+const Prompt = ({ clickForPrompt, prompt, addToFavorites, favoritePrompts }) => {
   return (
     <div className='promptContainer'>
       <div className='prompt' onClick={clickForPrompt}>
@@ -17,8 +18,8 @@ const Prompt = ({ clickForPrompt, prompt, addToFavorites }) => {
         <button className='favoritesButton' onClick={addToFavorites}>
         Add to Favorites
         </button>
-        <Link to='/favorite-prompts'>
-          <button className='promptsPageButton'>Favorite Prompts </button> 
+        <Link to='/favorite-prompts' className='favPromptButton'>
+        Favorite Prompts
         </Link>
       </div>
     </div>

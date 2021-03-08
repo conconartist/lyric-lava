@@ -16,7 +16,7 @@ const FavoritePrompts = ( {favPrompts, deletePrompt}) => {
 
   return (
     <React.Fragment>
-      <h3>Your Prompts</h3>
+      <h3 class='favPromptsTitle'>Your Prompts</h3>
       <div className='favPromptsContainer'>
         {prompts}
       </div>

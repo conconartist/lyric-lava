@@ -118,6 +118,7 @@ class App extends Component {
                     clickForPrompt={this.clickForPrompt} 
                     prompt={this.state.prompt}
                     addToFavorites={this.addToFavorites}
+                    favoritePrompts={this.state.FavoritePrompts}
                   />
                   <div className='formContainer'>
                     <SynonymForm 
