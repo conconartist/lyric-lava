@@ -19,7 +19,7 @@ const SynonymForm = ( { searchForSimilar }) => {
           placeholder='Enter Word'
           value={userInput}
           onChange={searchSimilarWords}
-          aria-labe='Search Similar Words'
+          aria-label='Search Similar Words'
           aria-required='true'
         >
         </input>
