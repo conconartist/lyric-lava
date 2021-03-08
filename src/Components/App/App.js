@@ -107,7 +107,7 @@ class App extends Component {
                 {/* //add nav bar to show favorites and home button */}
                 {this.state.error && <h2>Happy accidents. Embrace the mistakes. Try again.</h2>}
                 <section className="selectionContainer">
-                  {this.state.fetchingPrompt && <Load />}
+                  {this.state.fetchingPrompt && <Load type='prompt'/>}
                   <Prompt 
                     clickForPrompt={this.clickForPrompt} 
                     prompt={this.state.prompt}
@@ -123,7 +123,8 @@ class App extends Component {
                   </div>
                 </section>   
                 <section className='resultsDisplay'>
-                  {this.state.fetchingSynonyms && <Load /> || this.state.fetchingRhymes && <Load />}
+                  {this.state.fetchingSynonyms && <Load type='synonyms'/>}
+                  {this.state.fetchingRhymes && <Load type='rhymes'/>}
                   {this.state.synonymSearchWord && this.state.similarWords === undefined && <Error type='synonyms' />}
                   {this.state.similarWords !== undefined && this.state.similarWords.length !== 0 && 
                     <FormResults
