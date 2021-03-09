@@ -1,0 +1,35 @@
+h1 {
+    align-items: center;
+    background-color: #c9d1d5;
+    border-bottom: black solid 1px;
+    border-right: black solid 1px;
+    border-radius: 8px;
+    box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
+    -9px -9px 16px rgba(221, 221, 232, 0.3);
+    color: black;
+    display: flex;
+    font-size: 5em;
+    height: 15vh;
+    margin-bottom: 2%;
+    margin-left: 0.5em;
+    margin-top: 2%;
+    padding: 3%;
+}
+
+.linkContainer {
+    display: flex;
+    height: 10vh;
+    flex-direction: column;
+    margin-right: 0.5em;
+}
+
+nav {
+    align-items: center;
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+    margin-right: 1em;
+    margin-left: 1em;
+    margin-bottom: 0.5em;
+}
+
