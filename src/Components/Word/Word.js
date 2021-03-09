@@ -11,6 +11,6 @@ const Word = ({id, word}) => {
 export default Word;
 
 Word.propTypes = {
-    id: PropTypes.string,
-    word: PropTypes.string
+    id: PropTypes.string.isRequired,
+    word: PropTypes.string.isRequired
 }

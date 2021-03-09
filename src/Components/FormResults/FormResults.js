@@ -74,7 +74,7 @@ const FormResults = ({ word, wordResults, type}) => {
 export default FormResults;
 
 FormResults.propTypes = {
-  word: PropTypes.string,
-  wordResults: PropTypes.array,
-  type: PropTypes.string
+  word: PropTypes.string.isRequired,
+  wordResults: PropTypes.array.isRequired,
+  type: PropTypes.string.isRequired
 }

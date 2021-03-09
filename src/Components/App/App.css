@@ -4,7 +4,7 @@ button, a {
   border: none;
   border-radius: 8px;
   box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-            -9px -9px 16px rgba(221, 221, 232, 0.3);
+    -9px -9px 16px rgba(221, 221, 232, 0.3);
   color: black;
   font-size: 0.8em;
   display: flex;
@@ -81,7 +81,7 @@ input {
   padding-top: 2em;
   width: 80vw;
   box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-            -9px -9px 16px rgba(237, 237, 246, 0.3);
+    -9px -9px 16px rgba(237, 237, 246, 0.3);
 }
 
 

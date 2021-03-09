@@ -30,5 +30,5 @@ const RhymeForm = ( { searchForRhymes }) => {
 export default RhymeForm;
 
 RhymeForm.propTypes = {
-    searchForRhymes: PropTypes.func
+    searchForRhymes: PropTypes.func.isRequired
 }

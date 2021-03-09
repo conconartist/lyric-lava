@@ -24,6 +24,6 @@ const Synonyms = ({ word, synonyms }) => {
 export default Synonyms;
 
 Synonyms.propTypes = {
-  word: PropTypes.string,
-  synonyms: PropTypes.array
+  word: PropTypes.string.isRequired,
+  synonyms: PropTypes.array.isRequired
 }

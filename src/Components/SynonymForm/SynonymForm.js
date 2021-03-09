@@ -31,5 +31,5 @@ const SynonymForm = ( { searchForSimilar }) => {
 export default SynonymForm;
 
 SynonymForm.propTypes = {
-  searchForSimilar: PropTypes.func
+  searchForSimilar: PropTypes.func.isRequired
 }

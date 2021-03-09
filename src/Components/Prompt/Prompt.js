@@ -1,8 +1,6 @@
 import React from 'react';
 import './Prompt.css';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import FavoritePrompts from '../FavoritePrompts/FavoritePrompts';
 
 const Prompt = ({ clickForPrompt, prompt, addToFavorites, favoritePrompts }) => {
   return (
@@ -24,7 +22,7 @@ const Prompt = ({ clickForPrompt, prompt, addToFavorites, favoritePrompts }) => 
 export default Prompt;
 
 Prompt.propTypes = {
-  clickForPrompt: PropTypes.func, 
-  prompt: PropTypes.string, 
-  addToFavorites: PropTypes.func
+  clickForPrompt: PropTypes.func.isRequired, 
+  prompt: PropTypes.string.isRequired, 
+  addToFavorites: PropTypes.func.isRequired
 }

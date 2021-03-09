@@ -83,7 +83,6 @@ class App extends Component {
   render() {
     return (
       <main>
-        {/* <h1 className='title'>Lyric Lava</h1> */}
         <Nav />
         <Route
           exact
