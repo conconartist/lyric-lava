@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Load from '../Load/Load';
 import Error from '../Error/Error';
 import FavoritePrompts from '../FavoritePrompts/FavoritePrompts';
+import Nav from '../Nav/Nav';
 import Prompt from '../Prompt/Prompt';
 import FormResults from '../FormResults/FormResults';
 import RhymeForm from '../RhymeForm/RhymeForm';
@@ -82,7 +83,8 @@ class App extends Component {
   render() {
     return (
       <main>
-        <h1 className='title'>Lyric Lava</h1>
+        {/* <h1 className='title'>Lyric Lava</h1> */}
+        <Nav />
         <Route
           exact
           path='/'

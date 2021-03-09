@@ -1,8 +1,12 @@
 .favPrompt {
-   background-color: #fda381;
+  background-color: #fda381;
   border-radius: 8px;
   color: black;
   padding: 1em;
+}
+
+.promptContainer {
+  margin: 0.2em;
 }
 
 
