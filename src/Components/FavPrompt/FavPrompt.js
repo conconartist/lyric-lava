@@ -19,7 +19,7 @@ const FavPrompt = ({ id, prompt, deletePrompt }) => {
 export default FavPrompt;
 
 FavPrompt.propTypes = {
-  id: PropTypes.string,
-  prompt: PropTypes.string,
-  deletePrompt: PropTypes.func
+  id: PropTypes.string.isRequired,
+  prompt: PropTypes.string.isRequired,
+  deletePrompt: PropTypes.func.isRequired
 }

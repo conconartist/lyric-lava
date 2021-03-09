@@ -41,6 +41,6 @@ const FavoritePrompts = ( {favPrompts, deletePrompt}) => {
 export default FavoritePrompts;
 
 FavoritePrompts.propTypes = {
-    favPrompts: PropTypes.array,
-    deletePrompt: PropTypes.func
+    favPrompts: PropTypes.array.isRequired,
+    deletePrompt: PropTypes.func.isRequired
 }
