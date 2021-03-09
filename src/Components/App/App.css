@@ -50,23 +50,6 @@ main {
   padding-bottom: 100vh;
 }
 
-h1 {
-  align-items: center;
-  background-color: #c9d1d5;
-  border-bottom: black solid 1px;
-  border-right: black solid 1px;
-  border-radius: 8px;
-  box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-  -9px -9px 16px rgba(221, 221, 232, 0.3);
-  color: black;
-  display: flex;
-  font-size: 5em;
-  height: 15vh;
-  margin-bottom: 2%;
-  padding: 3%;
-  margin-top: 2%;
-}
-
 .homePage {
   background: rgb(63,94,99);
   background: linear-gradient(90deg, rgba(63,94,99,1) 0%, rgba(245,98,56,1) 19%, rgba(5,4,2,1) 100%);

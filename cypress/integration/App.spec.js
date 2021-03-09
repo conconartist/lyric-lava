@@ -100,7 +100,8 @@ describe('Main Display', () => {
         cy
         .get('.rhymeSearchBar').type('single')
         .get('.buttonRhymes').click()
-        .get('.resultsListRhymes > .singleWord').should('contain', 'bingle')
+        .wait(5000)
+        .get('.resultsContainerRhymes > .resultsListRhymes > .singleWord').should('contain', 'bingle')
         .get('.resultsContainerRhymes > a > .listButton').should('be.visible')
     })
 
@@ -149,7 +150,14 @@ describe('Main Display', () => {
             cy
             .visit(url)
             .get('.enterButton').click()
-            .get('.promptButtonContainer > .favoritesButton').should('be.visible')
+            .get('.favPromptButton').should('be.visible')
+        })
+        
+        it('should display a button in the nav bar to go to the main display', () => {
+            cy
+            .visit(url)
+            .get('.enterButton').click()
+            .get('a').contains('Home').should('be.visible')
         })
 
         it('should let you add your favorite prompts', () => {
@@ -199,7 +207,7 @@ describe('Main Display', () => {
         it('should take you back to the home page when you click the home button from the prompts page', () => {
             cy
             .get('.favPromptButton').click()
-            .get('a > .homeButton').click()
+            .get('a').contains('Home').click()
             .location('pathname').should('eq', '/home')
         })
     })
