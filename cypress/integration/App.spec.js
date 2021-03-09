@@ -100,7 +100,8 @@ describe('Main Display', () => {
         cy
         .get('.rhymeSearchBar').type('single')
         .get('.buttonRhymes').click()
-        .get('.resultsListRhymes > .singleWord').should('contain', 'bingle')
+        .wait(5000)
+        .get('.resultsContainerRhymes > .resultsListRhymes > .singleWord').should('contain', 'bingle')
         .get('.resultsContainerRhymes > a > .listButton').should('be.visible')
     })
 
@@ -149,7 +150,14 @@ describe('Main Display', () => {
             cy
             .visit(url)
             .get('.enterButton').click()
-            .get('.promptButtonContainer > .favoritesButton').should('be.visible')
+            .get('.favPromptButton').should('be.visible')
+        })
+        
+        it('should display a button in the nav bar to go to the main display', () => {
+            cy
+            .visit(url)
+            .get('.enterButton').click()
+            .get('a').contains('Home').should('be.visible')
         })
 
         it('should let you add your favorite prompts', () => {
@@ -177,20 +185,20 @@ describe('Main Display', () => {
 
         it('should display a list of your favorite prompts on a separate page when you click the "Favorite Prompts" button', () => {
             cy
-            .get('.promptsPageButton').click()
+            .get('.favPromptButton').click()
             .get('.favPromptsContainer').should('be.visible')
             .get('.promptContainer > .favPrompt').should('be.visible')
         })
 
         it('should have a delete button with each prompt listed', () => {
             cy
-            .get('.promptsPageButton').click()
+            .get('.favPromptButton').click()
             .get('.promptContainer > .deleteButton').should('be.visible')
         })
 
         it('should remove a prompt when you click on the delete button next to a prompt listed', () => {
             cy
-            .get('.promptsPageButton').click()
+            .get('.favPromptButton').click()
             .get('.promptContainer > .deleteButton').click({multiple:true})
             .wait(5000)
             .get('.favPromptsContainer').should('contain', '')
@@ -198,8 +206,8 @@ describe('Main Display', () => {
 
         it('should take you back to the home page when you click the home button from the prompts page', () => {
             cy
-            .get('.promptsPageButton').click()
-            .get('a > .homeButton').click()
+            .get('.favPromptButton').click()
+            .get('a').contains('Home').click()
             .location('pathname').should('eq', '/home')
         })
     })

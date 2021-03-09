@@ -14,14 +14,9 @@ const Prompt = ({ clickForPrompt, prompt, addToFavorites, favoritePrompts }) => 
         <h3 className='promptHeading'>Your prompt:</h3>
         <p className='promptResult'>{prompt}</p>
       </div>
-      <div className='promptButtonContainer'>
         <button className='favoritesButton' onClick={addToFavorites}>
         Add to Favorites
         </button>
-        <Link to='/favorite-prompts' className='favPromptButton'>
-        Favorite Prompts
-        </Link>
-      </div>
     </div>
   ) 
 }

@@ -32,17 +32,6 @@
     cursor:pointer;
 }
 
-.promptButtonContainer {
-    background-color: #3f5e63;
-    border-bottom: #243335;
-    border-radius: 8px;
-    border-right: #243335;
-    display: flex;
-    box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-    -9px -9px 16px rgba(221, 221, 232, 0.3);
-    padding: 2%;
-}
-
 .promptContainer {
     background-color: #69969c;
     box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
@@ -73,7 +62,7 @@
 
 .promptHeading {
     background-color: #3f5e63;
-    color: #000000;
+    color: white;
     margin: 0.3em;
 }
 .promptResult {

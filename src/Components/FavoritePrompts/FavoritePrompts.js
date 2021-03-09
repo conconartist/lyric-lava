@@ -13,18 +13,30 @@ const FavoritePrompts = ( {favPrompts, deletePrompt}) => {
         key={prompt}
       /> 
     })
-
-  return (
-    <React.Fragment>
-      <h3 class='favPromptsTitle'>Your Prompts</h3>
-      <div className='favPromptsContainer'>
-        {prompts}
-      </div>
-    <Link to='/home'>
-      <button className='homeButton'>Home</button>
-    </Link>
-    </React.Fragment>
+  if(favPrompts.length === 0) {
+    return (
+      <React.Fragment>
+        <h3 class='favPromptsTitle'>Your Prompts</h3>
+        <h4 class='noPromptsMessage'>No prompts saved.</h4>
+      <Link to='/home'>
+        <button className='homeButton'>Home</button>
+      </Link>
+      </React.Fragment>
+      
+    )
+  } else {
+    return (
+      <React.Fragment>
+        <h3 class='favPromptsTitle'>Your Prompts</h3>
+        <div className='favPromptsContainer'>
+          {prompts}
+        </div>
+      <Link to='/home'>
+        <button className='homeButton'>Home</button>
+      </Link>
+      </React.Fragment>
   )
+  }
 }
 export default FavoritePrompts;
 
