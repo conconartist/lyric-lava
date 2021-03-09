@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# Lyric Lava
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Contributers:
 
-In the project directory, you can run:
+Connie Hong
 
-### `npm start`
+*Mentor Reviews:*
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Tiffany Bacher
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Elle Li
 
-### `npm test`
+## Project Links:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Project spec & rubric can be found [here](https://frontend.turing.io/projects/module-3/niche-audience.html)
 
-### `npm run build`
+Project link on Github can be found [here](https://github.com/conconartist/lyric-lava)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Words API used for this project: [here](https://www.wordsapi.com/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Overview and Learning Goals:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The purpose of this project is to build a comprehensive web app from start to finish, using React, React Router, and Cypress for testing.  A niche audience is in mind to create an MVP that has a specific user in mind.  In this case, Lyric Lava is a songwriting app for those who are suffering from writer's block. It utilizes the Words API and generating random prompts, as well as a thesaurus and rhyming resource when the user is writing out lyrics for a song.
 
-### `npm run eject`
+## Technologies Used:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* React
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* React Router
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* Cypress
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* JavaScript
 
-## Learn More
+* CSS
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* HTML
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## How to Run and View, Instructions for the User:
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+*To Contribute:*
 
-### Analyzing the Bundle Size
+1. Go to the Github page for this repo: https://github.com/conconartist/lyric-lava
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+2. Copy the code to clone the repo to your local machine.
 
-### Making a Progressive Web App
+3. In your terminal, enter `git clone` and paste the copied link.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+4. CD into the directory to view the respective files.
 
-### Advanced Configuration
+5. From the root directory of the project, run `npm install` in your terminal window to install the necessary dependencies.  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+6. To view the app in your browser window, run `npm start` and enter the url: `http://localhost:3000` in the address bar.  
 
-### Deployment
+7. To run tests, enter `npx cypress open` in your project directory and select `App.spec.js` which can be found in the integration folder inside of the cypress test folder. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## In Action:
 
-### `npm run build` fails to minify
+![enter](https://media.giphy.com/media/m3kJomDm8QdUydn1lG/giphy.gif)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![favorite prompts](https://media.giphy.com/media/2up1Y233ONJW4FTgCA/giphy.gif)
+
+![results lists](https://media.giphy.com/media/LvGEOokSKMRftj5ipg/giphy.gif)
+
