@@ -11,6 +11,9 @@
     box-shadow: none;
 }
 
+.hidden {
+    visibility: none;
+}
 .promptPageButton:active {
     box-shadow: none;
 }

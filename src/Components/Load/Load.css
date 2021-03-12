@@ -1,13 +1,13 @@
 .loadingMessage {
-    border-radius: 8px;
-    background-color: #c9d1d5;
-    box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-      -9px -9px 16px rgba(221, 221, 232, 0.3);
-    margin: 0;
-    padding: 0.2em;
+  border-radius: 8px;
+  background-color: #c9d1d5;
+  box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
+    -9px -9px 16px rgba(221, 221, 232, 0.3);
+  margin: 0;
+  padding: 0.2em;
 }
 .loadingText {
-    background-color: #c9d1d5;
-    color: black;
-    margin-top: 0;
+  background-color: #c9d1d5;
+  color: black;
+  margin-top: 0;
 }
