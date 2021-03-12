@@ -29,8 +29,10 @@ const Form = ( { searchForRhymes, searchForSimilar }) => {
           aria-required='true'
         >
         </input>
-        <button className='buttonRhymes' onClick={searchRhymingWords}> Get Rhyming Words </button>
-        <button className='buttonThesaurus' onClick={searchSimilarWords} >Get Similar Words</button>
+        <div className='searchButtonContainer'>
+          <button className='buttonRhymes' onClick={searchRhymingWords}> Get Rhyming Words </button>
+          <button className='buttonThesaurus' onClick={searchSimilarWords} >Get Similar Words</button>
+        </div>
       </form>
     </div> 
   )

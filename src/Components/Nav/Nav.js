@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 const Nav = () => {
   return (
     <nav>
-      <h1 className='title'>Lyric Lava</h1>
         <div className='linkContainer'>
           <Link to='/home'>
                 Home
@@ -16,6 +15,7 @@ const Nav = () => {
               </button>
           </Link>
         </div>
+        <h1 className='title'>Lyric Lava</h1>
     </nav>  
   )
 }
