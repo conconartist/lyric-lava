@@ -3,24 +3,26 @@
 .resultsContainerRhymes {
   align-items: center;
   background-color: #3f5e63;
-  box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-  -9px -9px 16px rgba(221, 221, 232, 0.3);
+  box-shadow: 9px 9px 16px rgba(221, 221, 232, 0.3), 
+  -9px -9px 16px rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 1em;
   padding: 1em;
 } 
 
 .resultsContainerSynonyms {
   align-items: center;
   background-color: #3f5e63;
-  box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-  -9px -9px 16px rgba(221, 221, 232, 0.3);
+  box-shadow: 9px 9px 16px rgba(221, 221, 232, 0.3), 
+  -9px -9px 16px rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 1em;
   padding: 1em;
 }
 
