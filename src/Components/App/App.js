@@ -5,8 +5,7 @@ import FavoritePrompts from '../FavoritePrompts/FavoritePrompts';
 import Nav from '../Nav/Nav';
 import Prompt from '../Prompt/Prompt';
 import FormResults from '../FormResults/FormResults';
-import RhymeForm from '../RhymeForm/RhymeForm';
-import SynonymForm from '../SynonymForm/SynonymForm';
+import Form from '../Form/Form';
 import WordList from '../WordList/WordList';
 import './App.css';
 import apiCalls from '../../apiCalls';
@@ -122,11 +121,9 @@ class App extends Component {
                     favoritePrompts={this.state.FavoritePrompts}
                   />
                   <div className='formContainer'>
-                    <SynonymForm 
-                      searchForSimilar={this.searchForSimilar}
-                    />
-                    <RhymeForm
+                    <Form 
                       searchForRhymes={this.searchForRhymes}
+                      searchForSimilar={this.searchForSimilar}
                     />
                   </div>
                 </section>   

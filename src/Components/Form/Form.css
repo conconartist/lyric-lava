@@ -2,11 +2,27 @@
     margin: 0.2em;
 }
 
-.rhymeSearchBar {
+.buttonThesaurus {
+    margin: 0.2em;
+}
+
+.searchBar { 
     margin: 0.5em;
 }
 
-.rhymeSearchForm {
+.searchForm {
+    background-color: #3f5e63;
+    box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
+    -9px -9px 16px rgba(221, 221, 232, 0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    height: 5vh;
+    margin: 1em;
+    padding: 2vh;
+}
+
+.searchFormContainer {
     background-color: #c9d1d5;
     box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
     -9px -9px 16px rgba(221, 221, 232, 0.3);
@@ -17,17 +33,4 @@
     flex-direction: column;
     align-items: center;
     margin: 1em;
-}
-
-.rhymeWordsForm {
-    align-items: center;
-    background-color: #3f5e63;
-    box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-    -9px -9px 16px rgba(221, 221, 232, 0.3);
-    border-radius: 8px;
-    display: flex;
-    height: 5vh;
-    margin: 1em;
-    padding: 2vh;
-    
 }
