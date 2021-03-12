@@ -3,8 +3,8 @@ button, a {
   background-color: #69969c;
   border: none;
   border-radius: 8px;
-  box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-    -9px -9px 16px rgba(221, 221, 232, 0.3);
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5), 
+    -4px -4px 16px rgba(221, 221, 232, 0.3);
   color: black;
   font-size: 0.8em;
   display: flex;
@@ -30,9 +30,13 @@ button, a {
 
 .formContainer {
   background-color: #69969c;
+  background: rgb(63,94,99);
+  background: linear-gradient(90deg, rgba(63,94,99,1) 0%, rgba(245,98,56,1) 19%, rgba(5,4,2,1) 100%);
   border-radius: 8px;
-  box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-  -9px -9px 16px rgba(221, 221, 232, 0.3);
+  /* box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
+  -9px -9px 16px rgba(221, 221, 232, 0.3); */
+  box-shadow: 7px 7px 18px rgba(221, 221, 232, 0.30), 
+    -7px -7px 18px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   margin: 1em;
