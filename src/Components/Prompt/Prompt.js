@@ -2,7 +2,8 @@ import React from 'react';
 import './Prompt.css';
 import PropTypes from 'prop-types';
 
-const Prompt = ({ clickForPrompt, prompt, addToFavorites, favoritePrompts }) => {
+const Prompt = ({ clickForPrompt, prompt, addToFavorites }) => {
+
   return (
     <div className='promptContainer'>
       <div className='prompt' onClick={clickForPrompt}>
