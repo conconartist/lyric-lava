@@ -16,8 +16,8 @@ const FavoritePrompts = ( {favPrompts, deletePrompt}) => {
   if(favPrompts.length === 0) {
     return (
       <React.Fragment>
-        <h3 class='favPromptsTitle'>Your Prompts</h3>
-        <h4 class='noPromptsMessage'>No prompts saved.</h4>
+        <h3 className='favPromptsTitle'>Your Prompts</h3>
+        <h4 className='noPromptsMessage'>No prompts saved.</h4>
       <Link to='/home'>
         <button className='homeButton'>Home</button>
       </Link>
