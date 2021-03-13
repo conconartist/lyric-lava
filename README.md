@@ -13,6 +13,8 @@ Elle Li
 
 ## Project Links:
 
+Lyric Lava is deployed on Vercel: [Lyric Lava](https://lyric-lava.vercel.app/)
+
 Project spec & rubric can be found [here](https://frontend.turing.io/projects/module-3/niche-audience.html)
 
 Project link on Github can be found [here](https://github.com/conconartist/lyric-lava)
