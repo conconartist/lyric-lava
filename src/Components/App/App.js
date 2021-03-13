@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Load from '../Load/Load';
 import Error from '../Error/Error';
 import FavoritePrompts from '../FavoritePrompts/FavoritePrompts';
@@ -11,75 +11,79 @@ import './App.css';
 import apiCalls from '../../apiCalls';
 import { Route, Link } from 'react-router-dom';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      prompt: "",
-      rhymeSearchWord: "",
-      synonymSearchWord: "",
-      rhymingWords: [],
-      similarWords: [], 
-      fetchingRhymes: false,
-      fetchingSynonyms: false,
-      favoritePrompts: [],
-      error: false
-    }
-  }
+const App = () => {
+  const [prompt, setPrompt] = useState('');
+  const [rhymeSearchWord, setRhymeSearchWord] = useState('');
+  const [synonymSearchWord, setSynonymSearchWord] = useState('');
+  const [rhymingWords, setRhymingWords] = useState([]);
+  const [similarWords, setSimilarWords] = useState([]);
+  const [isFetchingPrompt, setIsFetchingPrompt] = useState(false);
+  const [isFetchingRhymes, setIsFetchingRhymes] = useState(false);
+  const [isFetchingSynonyms, setIsFetchingSynonyms] = useState(false);
+  const [favoritePrompts, setFavoritePrompts] = useState([]);
+  const [hasError, setHasError] = useState(false)
 
-  clickForPrompt = () => {
-    this.setState({fetchingPrompt: true})
+  const clickForPrompt = () => {
+    setIsFetchingPrompt(true)
     apiCalls.getPrompt()
     .then((data) => { 
       if (data.examples.length === 0) {
-        this.setState({ prompt: data.word, fetchingPrompt: false })
+        setPrompt(data.word)
+        setIsFetchingPrompt(false)
       } else {
-        this.setState({ prompt: data.examples[0], fetchingPrompt: false })
+        setPrompt(data.examples[0])
+        setIsFetchingPrompt(false)
       }
     })
     .catch(err => {
-      this.setState({ error: true, fetchingPrompt: false})
+      setHasError(true)
+      setIsFetchingPrompt(false)
 	    console.error("Something went wrong while fetching the prompt. Please try again.");
     });
   }
 
-  searchForSimilar = (searchInput) => {
-    this.setState({fetchingSynonyms: true})
+  const searchForSimilar = (searchInput) => {
+    setIsFetchingSynonyms(true)
     if(searchInput) {
       apiCalls.getSynonyms(searchInput)
         .then(data => {
-          this.setState({ synonymSearchWord: searchInput, similarWords: data.synonyms, fetchingSynonyms: false })
+          setSynonymSearchWord(searchInput)
+          setSimilarWords(data.synonyms)
+          setIsFetchingSynonyms(false)
         })
         .catch(err => {
-          this.setState({ error: true, fetchingSynonyms: false })
+          setHasError(true)
+          setIsFetchingSynonyms(false)
 	        console.error("Something went wrong while fetching synonyms. Please try again.");
         });
     }  
   }
 
-  searchForRhymes = (searchInput) => {
-    this.setState({fetchingRhymes: true})
+  const searchForRhymes = (searchInput) => {
+    setIsFetchingRhymes(true)
     if(searchInput) {
       apiCalls.getRhymes(searchInput)
       .then(data => {
-        this.setState({ rhymeSearchWord: searchInput, rhymingWords: data.rhymes.all, fetchingRhymes: false })
+        setRhymeSearchWord(searchInput)
+        setRhymingWords(data.rhymes.all)
+        setIsFetchingRhymes(false)
       })
       .catch(err => {
-        this.setState({ error: true, fetchingRhymes: false })
+        setHasError(true)
+        setIsFetchingRhymes(false)
 	      console.error("Something went wrong while fetching rhymes. Please try again.");
       });
     }
   }
 
-  addToFavorites = () => {
-    this.setState({favoritePrompts: [...this.state.favoritePrompts, this.state.prompt]})
+  const addToFavorites = () => {
+    setFavoritePrompts([...favoritePrompts, prompt])
   }
   
-  deletePrompt = (promptId) => {
-    const filteredPrompts = this.state.favoritePrompts.filter(prompt => prompt !== promptId)
-    this.setState({favoritePrompts: filteredPrompts})
+  const deletePrompt = (promptId) => {
+    const filteredPrompts = favoritePrompts.filter(prompt => prompt !== promptId)
+    setFavoritePrompts(filteredPrompts)
   }
-  render() {
     return (
       <main>
         <Nav />
@@ -111,38 +115,37 @@ class App extends Component {
           render={ () => {
             return (
               <div className='homePage'>
-                {this.state.error && <h2>Happy accidents. Embrace the mistakes. Try again.</h2>}
+                {hasError && <h2>Happy accidents. Embrace the mistakes. Try again.</h2>}
                 <section className="selectionContainer">
-                  {this.state.fetchingPrompt && <Load type='prompt'/>}
+                  {isFetchingPrompt && <Load type='prompt'/>}
                   <Prompt 
-                    clickForPrompt={this.clickForPrompt} 
-                    prompt={this.state.prompt}
-                    addToFavorites={this.addToFavorites}
-                    favoritePrompts={this.state.FavoritePrompts}
+                    clickForPrompt={clickForPrompt} 
+                    prompt={prompt}
+                    addToFavorites={addToFavorites}
                   />
                   <div className='formContainer'>
                     <Form 
-                      searchForRhymes={this.searchForRhymes}
-                      searchForSimilar={this.searchForSimilar}
+                      searchForRhymes={searchForRhymes}
+                      searchForSimilar={searchForSimilar}
                     />
                   </div>
                 </section>   
                 <section className='resultsDisplay'>
-                  {this.state.fetchingSynonyms && <Load type='synonyms'/>}
-                  {this.state.fetchingRhymes && <Load type='rhymes'/>}
-                  {this.state.synonymSearchWord && this.state.similarWords === undefined && <Error type='synonyms' />}
-                  {this.state.similarWords !== undefined && this.state.similarWords.length !== 0 && 
+                  {isFetchingSynonyms && <Load type='synonyms'/>}
+                  {isFetchingRhymes && <Load type='rhymes'/>}
+                  {synonymSearchWord && similarWords === undefined && <Error type='synonyms' />}
+                  {similarWords !== undefined && similarWords.length !== 0 && 
                     <FormResults
-                      word={this.state.synonymSearchWord}
-                      wordResults={this.state.similarWords}
+                      word={synonymSearchWord}
+                      wordResults={similarWords}
                       type='synonyms'
                     />
                   }
-                  {this.state.rhymeSearchWord && this.state.rhymingWords === undefined && <Error type='rhymes' />}
-                  {this.state.rhymingWords !== undefined && this.state.rhymingWords.length !== 0 &&
+                  {rhymeSearchWord && rhymingWords === undefined && <Error type='rhymes' />}
+                  {rhymingWords !== undefined && rhymingWords.length !== 0 &&
                     <FormResults
-                      word={this.state.rhymeSearchWord}
-                      wordResults={this.state.rhymingWords}
+                      word={rhymeSearchWord}
+                      wordResults={rhymingWords}
                       type='rhymes'
                     /> 
                   }
@@ -154,28 +157,28 @@ class App extends Component {
 
         <Route path='/synonyms'>
           <WordList 
-            word={this.state.synonymSearchWord}
-            wordResults={this.state.similarWords}
+            word={synonymSearchWord}
+            wordResults={similarWords}
             type='synonyms'
           />
         </Route> 
 
         <Route path='/rhymes'>
           <WordList
-            word={this.state.rhymeSearchWord}
-            wordResults={this.state.rhymingWords}
+            word={rhymeSearchWord}
+            wordResults={rhymingWords}
             type='rhymes'
           />
         </Route>
 
         <Route path='/favorite-prompts'>
           <FavoritePrompts 
-            favPrompts={this.state.favoritePrompts}
-            deletePrompt={this.deletePrompt}
+            favPrompts={favoritePrompts}
+            deletePrompt={deletePrompt}
           />
         </Route>
       </main>
     )
   }
-}
+
 export default App;
