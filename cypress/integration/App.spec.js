@@ -16,8 +16,7 @@ describe('Main Display', () => {
     it('should be able to click on the button to take you to the home page with visible prompt button and search bars', () => {
         cy
         .get('.prompt').should('be.visible')
-        .get('.synonymSearchForm').should('be.visible')
-        .get('.rhymeSearchForm').should('be.visible')
+        .get('.searchForm').should('be.visible')
     })
 
     it('should take you to a new url when the button is clicked', () => {
@@ -46,19 +45,14 @@ describe('Main Display', () => {
         expect('.promptDisplay > .promptResult').to.not.equal(undefined)
     })
 
-    it('should display a search bar to find rhyming words', () => {
+    it('should display a search bar to find rhyming and similar words', () => {
         cy
-        .get('.rhymeWordsForm').should('be.visible')
+        .get('.searchBar').should('be.visible')
     })
 
-    it('should display a search bar for similar words', () => {
+    it('should display a loading message when the "Get Similar Words" button is clicked to search for words', () => {
         cy
-        .get('.similarWordsForm').should('be.visible')
-    })
-
-    it('should display a loading message when the buttons are clicked to search for words', () => {
-        cy
-        .get('.synonymSearchBar').type('hello')
+        .get('.searchBar').type('hello')
         .wait(5000)
         .get('.buttonThesaurus').click()
         .get('.resultsDisplay > .loadingMessage').should('be.visible')
@@ -66,7 +60,7 @@ describe('Main Display', () => {
 
     it('should display a list of words when a word is entered in the "get similar words" input field', () => {
         cy
-        .get('.synonymSearchBar').type('hello')
+        .get('.searchBar').type('hello')
         .get('.buttonThesaurus').click()
         .wait(5000)
         .get('.resultsListSynonyms').should('contain', 'howdy')
@@ -74,7 +68,7 @@ describe('Main Display', () => {
 
     it('should display a list of rhyming words when a word is entered in the "get rhyming words" input field', () => {
         cy
-        .get('.rhymeSearchBar').type('single')
+        .get('.searchBar').type('single')
         .get('.buttonRhymes').click()
         .wait(5000)
         .get('.resultsListRhymes').should('contain', 'jingle')
@@ -82,23 +76,23 @@ describe('Main Display', () => {
 
     it('should display an error if the word is not found from searching for similar words', () => {
         cy
-        .get('.synonymSearchBar').type('ojojie')
+        .get('.searchBar').type('ojojie')
         .get('.buttonRhymes').click()
-        .get('.errorMessage').should('contain', 'What a cool word!')
-        .get('.errorMessage').should('be.visible')
+        .get('.errorText').should('contain', 'What a cool word!')
+        .get('.errorText').should('be.visible')
     })
 
     it('should display an error if the word is not found from searching for rhyming words', () => {
         cy
-        .get('.rhymeSearchBar').type('zxc')
+        .get('.searchBar').type('zxc')
         .get('.buttonRhymes').click()
-        .get('.errorMessage').should('contain', 'You\'re so creative')
-        .get('.errorMessage').should('be.visible')
+        .get('.errorText').should('contain', 'You\'re so creative')
+        .get('.errorText').should('be.visible')
     })
         
     it('should display a list of words and a button to click to see more results if the returning array is longer than 10 words', () => {
         cy
-        .get('.rhymeSearchBar').type('single')
+        .get('.searchBar').type('single')
         .get('.buttonRhymes').click()
         .wait(5000)
         .get('.resultsContainerRhymes > .resultsListRhymes > .singleWord').should('contain', 'bingle')
@@ -107,7 +101,7 @@ describe('Main Display', () => {
 
     it('should go to a different page when the "Click to See All Results" button is clicked', () => {
         cy
-        .get('.rhymeSearchBar').type('single')
+        .get('.searchBar').type('single')
         .get('.buttonRhymes').click()
         .wait(5000)
         .get('.listButton').click()
@@ -125,7 +119,7 @@ describe('Main Display', () => {
         
     it('should display a full list of words on a different page when the button to see more results is clicked', () => {
         cy
-        .get('.rhymeSearchBar').type('single')
+        .get('.searchBar').type('single')
         .get('.buttonRhymes').click()
         .wait(5000)
         .get('.listButton').click()
@@ -136,7 +130,7 @@ describe('Main Display', () => {
     
     it('should display a home button when you are on the full results page', () => {
         cy
-        .get('.rhymeSearchBar').type('single')
+        .get('.searchBar').type('single')
         .get('.buttonRhymes').click()
         .wait(5000)
         .get('.listButton').click()
