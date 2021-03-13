@@ -58,9 +58,11 @@ The purpose of this project is to build a comprehensive web app from start to fi
 
 ## In Action:
 
-![enter](https://media.giphy.com/media/m3kJomDm8QdUydn1lG/giphy.gif)
+![enter](https://media.giphy.com/media/ioVFsxLZjC7SDO0iWt/giphy.gif)
 
-![favorite prompts](https://media.giphy.com/media/2up1Y233ONJW4FTgCA/giphy.gif)
+![favorite prompts](https://media.giphy.com/media/X3i2Z0GtKjEAkFah1N/giphy.gif)
 
-![results lists](https://media.giphy.com/media/LvGEOokSKMRftj5ipg/giphy.gif)
+![search bar](https://media.giphy.com/media/jT7L3fghR6YfY8vmvJ/giphy.gif)
+
+![more search](https://media.giphy.com/media/8s0ItqtiNFr3sHQsIt/giphy.gif)
 
