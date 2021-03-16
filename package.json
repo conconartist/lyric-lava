@@ -18,13 +18,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "./node_modules/.bin/cypress open",
-    "eject": "react-scripts eject",
-    "ci": "run-s lint:ci build:prod ci:cy-run",
-    "lint:ci": "ng lint",
-    "build:prod": "ng build --prod",
-    "ci:cy-run": "start-server-and-test ci:start-server 3001 cy:run",
-    "ci:start-server": "angular-http-server --path ./dis/ngws -p 3001",
-    "cy:run": "cypress run"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
