@@ -78,7 +78,7 @@ describe('Main Display', () => {
         cy
         .get('.searchBar').type('ojojie')
         .get('.buttonRhymes').click()
-        .get('.errorText').should('contain', 'What a cool word!')
+        // .get('.errorText').should('contain', 'What a cool word!')
         .get('.errorText').should('be.visible')
     })
 
