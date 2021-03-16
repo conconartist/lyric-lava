@@ -5,7 +5,10 @@ cache:
 install: 
   - npm ci
   - npm run build
-  - travis_wait 30 mvn install
+before_script:
+  - npm start -- --silent &
+script:
+  - $(npm bin)/cypress run
 language: node_js
 os: osx
 node_js:
