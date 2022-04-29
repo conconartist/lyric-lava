@@ -1,4 +1,5 @@
 import React from 'react';
+import '../assets/Prompt.css';
 import PropTypes from 'prop-types';
 
 const Prompt = ({ clickForPrompt, prompt, addToFavorites }) => {

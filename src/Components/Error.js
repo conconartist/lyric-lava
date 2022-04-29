@@ -1,4 +1,5 @@
 import React from 'react';
+import '../assets/Error.css';
 import PropTypes from 'prop-types';
 
 const Error = ({ type }) => {
