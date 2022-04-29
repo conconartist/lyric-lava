@@ -1,5 +1,4 @@
 import React from 'react';
-import './Load.css';
 import PropTypes from 'prop-types';
 
 const Load = ({type}) => {

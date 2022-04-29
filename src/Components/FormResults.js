@@ -1,6 +1,5 @@
 import React from 'react';
-import './FormResults.css';
-import Word from '../Word/Word';
+import Word from './Word';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 

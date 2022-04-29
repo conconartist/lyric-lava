@@ -1,6 +1,5 @@
 import React from 'react';
-import FavPrompt from '../FavPrompt/FavPrompt';
-import './FavoritePrompts.css';
+import FavPrompt from './FavPrompt';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 

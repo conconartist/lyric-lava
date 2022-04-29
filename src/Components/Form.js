@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './Form.css';
 import PropTypes from 'prop-types';
 
 const Form = ( { searchForRhymes, searchForSimilar }) => {

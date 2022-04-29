@@ -1,5 +1,4 @@
 import React from 'react';
-import './Word.css';
 import PropTypes from 'prop-types';
 
 const Word = ({id, word}) => {
