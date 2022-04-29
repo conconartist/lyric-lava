@@ -1,14 +1,10 @@
 .errorMessage {
     border-radius: 8px;
     background-color: #c9d1d5;
-    box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-    -9px -9px 16px rgba(221, 221, 232, 0.3);
 }
 
 .errorText {
     background-color: #c9d1d5;
-    box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-    -9px -9px 16px rgba(221, 221, 232, 0.3);
     border-radius: 8px;
     padding: 0.5em;
 }

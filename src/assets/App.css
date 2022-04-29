@@ -1,7 +1,7 @@
 main {
   align-items: center;
   background: rgb(63,94,99);
-  background: linear-gradient(90deg, rgba(63,94,99,1) 0%, rgba(245,98,56,1) 19%, rgba(5,4,2,1) 100%);
+  /* background: linear-gradient(90deg, rgba(63,94,99,1) 0%, rgba(245,98,56,1) 19%, rgba(5,4,2,1) 100%); */
   color: 000000;
   display: flex;
   flex-direction: column;
@@ -11,12 +11,10 @@ main {
 
 .homePage {
   background: rgb(63,94,99);
-  background: linear-gradient(90deg, rgba(63,94,99,1) 0%, rgba(245,98,56,1) 19%, rgba(5,4,2,1) 100%);
+  /* background: linear-gradient(90deg, rgba(63,94,99,1) 0%, rgba(245,98,56,1) 19%, rgba(5,4,2,1) 100%); */
   border-radius: 8px;
   border-bottom: black solid 1px;
   border-right: black solid 1px;
-  box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-  -9px -9px 16px rgba(221, 221, 232, 0.3);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,8 +64,6 @@ button, a {
   background-color: #69969c;
   border: none;
   border-radius: 8px;
-  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5), 
-    -4px -4px 16px rgba(221, 221, 232, 0.3);
   color: black;
   font-size: 0.8em;
   display: flex;
@@ -94,10 +90,8 @@ button, a {
 .formContainer {
   background-color: #69969c;
   background: rgb(63,94,99);
-  background: linear-gradient(90deg, rgba(63,94,99,1) 0%, rgba(245,98,56,1) 19%, rgba(5,4,2,1) 100%);
+  /* background: linear-gradient(90deg, rgba(63,94,99,1) 0%, rgba(245,98,56,1) 19%, rgba(5,4,2,1) 100%); */
   border-radius: 8px;
-  box-shadow: 7px 7px 18px rgba(221, 221, 232, 0.30), 
-    -7px -7px 18px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   margin: 1em;
@@ -120,15 +114,11 @@ input {
   padding-bottom: 0;
   padding-top: 2em;
   width: 80vw;
-  box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-    -9px -9px 16px rgba(237, 237, 246, 0.3);
 }
 
 .loadingMessage {
   border-radius: 8px;
   background-color: #c9d1d5;
-  box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-    -9px -9px 16px rgba(221, 221, 232, 0.3);
   margin: 0;
   padding: 0.2em;
 }
@@ -142,8 +132,6 @@ input {
 .resultsContainerRhymes {
   align-items: center;
   background-color: #3f5e63;
-  box-shadow: 9px 9px 16px rgba(221, 221, 232, 0.3), 
-  -9px -9px 16px rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -155,8 +143,6 @@ input {
 .resultsContainerSynonyms {
   align-items: center;
   background-color: #3f5e63;
-  box-shadow: 9px 9px 16px rgba(221, 221, 232, 0.3), 
-  -9px -9px 16px rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -167,8 +153,6 @@ input {
 
 .resultsContainer {
   background-color: #c9d1d5;
-  box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-  -9px -9px 16px rgba(221, 221, 232, 0.3);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -181,8 +165,6 @@ input {
 .resultsDisplay {
   align-items: center;
   background-color: #3f5e63;
-  box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-  -9px -9px 16px rgba(221, 221, 232, 0.3);
   border-radius: 8px;
   display: flex;
   flex-direction: row;
@@ -215,8 +197,6 @@ input {
 .resultsListSynonyms, .resultsListRhymes {
   align-items: center;
   background-color: #69969c;
-  box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-  -9px -9px 16px rgba(221, 221, 232, 0.3);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -230,8 +210,6 @@ input {
   margin: 5%;
   text-align: center;
   background-color: #c9d1d5;
-  box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-  -9px -9px 16px rgba(221, 221, 232, 0.3);
   border-radius: 8px;
   width: 80%;
 }
@@ -246,8 +224,6 @@ input {
 .favPromptsTitle, .noPromptsMessage {
   background-color: #000000;
   border-radius: 8px;
-  box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-  -9px -9px 16px rgba(221, 221, 232, 0.3);
   color: #c9d1d5;
   font-size: 2em;
   margin: 1em;
@@ -255,8 +231,6 @@ input {
 }
 
 .favPromptsContainer {
-  box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-  -9px -9px 16px rgba(221, 221, 232, 0.3);
   border-radius: 8px;
   padding: 1em;
 }
