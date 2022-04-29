@@ -88,9 +88,7 @@ const App = () => {
     return (
       <main>
         <Nav />
-        <Route
-          exact
-          path='/'
+        <Route exact path='/'
           render={ () => {
             return (
               <Welcome />
@@ -98,9 +96,7 @@ const App = () => {
           }}
         />
 
-        <Route 
-          exact
-          path='/home'
+        <Route exact path='/home'
           render={ () => {
             return (
               <div className='homePage'>
