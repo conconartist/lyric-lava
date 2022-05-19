@@ -1,7 +1,6 @@
 import React from 'react';
-import './WordList.css';
 import { Link } from 'react-router-dom';
-import Word from '../Word/Word';
+import Word from './Word';
 import PropTypes from 'prop-types';
 
 const WordList = ({word, wordResults, type}) => {

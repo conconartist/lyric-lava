@@ -1,11 +1,9 @@
-h1 {
+.title {
     align-items: center;
-    background-color: #1a252d;
+    background-color: black;
     border-bottom: black solid 1px;
     border-right: black solid 1px;
     border-radius: 8px;
-    box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-    -9px -9px 16px rgba(221, 221, 232, 0.3);
     color: #c9d1d5;
     display: flex;
     font-size: 3em;
@@ -13,13 +11,11 @@ h1 {
     margin-bottom: 2%;
     margin-top: 2%;
     padding: 3%;
-    width: 30%;
+    width: 100%;
 }
 
 .linkContainer {
-    background-color: #1a252d;
-    box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.5), 
-    -9px -9px 16px rgba(221, 221, 232, 0.3);
+    background-color: black;
     display: flex;
     flex-direction: row;
     padding: 0.5em;
@@ -29,10 +25,9 @@ h1 {
 
 nav {
     align-items: center;
-    background-color: #1a252d;
-    background: linear-gradient(90deg, rgba(63,94,99,1) 0%, rgba(245,98,56,1) 19%, rgba(5,4,2,1) 100%);
+    background-color: black;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100vw;
     margin-right: 1em;
     margin-left: 1em;

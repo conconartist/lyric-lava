@@ -1,0 +1,10 @@
+.errorMessage {
+    border-radius: 8px;
+    background-color: #c9d1d5;
+}
+
+.errorText {
+    background-color: #c9d1d5;
+    border-radius: 8px;
+    padding: 0.5em;
+}

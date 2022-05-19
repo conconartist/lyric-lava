@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Form.css';
+import '../assets/Form.css';
 import PropTypes from 'prop-types';
 
 const Form = ( { searchForRhymes, searchForSimilar }) => {
@@ -30,8 +30,8 @@ const Form = ( { searchForRhymes, searchForSimilar }) => {
         >
         </input>
         <div className='searchButtonContainer'>
-          <button className='buttonRhymes' onClick={searchRhymingWords}> Get Rhyming Words </button>
-          <button className='buttonThesaurus' onClick={searchSimilarWords} >Get Similar Words</button>
+          <button className='buttonRhymes' onClick={searchRhymingWords}>Rhyming Words</button>
+          <button className='buttonThesaurus' onClick={searchSimilarWords} >Similar Words</button>
         </div>
       </form>
     </div> 

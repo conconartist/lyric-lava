@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import Load from '../Load/Load';
-import Error from '../Error/Error';
-import FavoritePrompts from '../FavoritePrompts/FavoritePrompts';
-import Nav from '../Nav/Nav';
-import Prompt from '../Prompt/Prompt';
-import FormResults from '../FormResults/FormResults';
-import Form from '../Form/Form';
-import WordList from '../WordList/WordList';
-import Welcome from '../Welcome/Welcome';
-import './App.css';
-import apiCalls from '../../apiCalls';
+import Load from './Load';
+import Error from './Error';
+import FavoritePrompts from './FavoritePrompts';
+import Nav from './Nav';
+import Prompt from './Prompt';
+import FormResults from './FormResults';
+import Form from './Form';
+import WordList from './WordList';
+import Welcome from './Welcome';
+import '../assets/App.css';
+import apiCalls from '../apiCalls';
 import { Route, Link } from 'react-router-dom';
 
 const App = () => {
@@ -88,9 +88,7 @@ const App = () => {
     return (
       <main>
         <Nav />
-        <Route
-          exact
-          path='/'
+        <Route exact path='/'
           render={ () => {
             return (
               <Welcome />
@@ -98,9 +96,7 @@ const App = () => {
           }}
         />
 
-        <Route 
-          exact
-          path='/home'
+        <Route exact path='/home'
           render={ () => {
             return (
               <div className='homePage'>

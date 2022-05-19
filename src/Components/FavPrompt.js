@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './FavPrompt.css';
 import PropTypes from 'prop-types';
 
 const FavPrompt = ({ id, prompt, deletePrompt }) => {
