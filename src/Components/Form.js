@@ -30,11 +30,11 @@ const Form = ( { searchForRhymes, searchForSimilar }) => {
         >
         </input>
         <div className='searchButtonContainer'>
-          <button className='buttonRhymes' onClick={searchRhymingWords}>Rhyming Words</button>
-          <button className='buttonThesaurus' onClick={searchSimilarWords} >Similar Words</button>
+          <button className='buttonRhymes' onClick={searchRhymingWords}>Rhymes</button>
+          <button className='buttonThesaurus' onClick={searchSimilarWords} >Synonyms</button>
         </div>
       </form>
-    </div> 
+    </div>
   )
 }
 export default Form;
