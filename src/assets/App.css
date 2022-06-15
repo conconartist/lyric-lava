@@ -9,16 +9,16 @@ main {
   padding-bottom: 100vh;
 }
 
-.homePage {
+/* .homePage {
   /* background: linear-gradient(90deg, rgba(63,94,99,1) 0%, rgba(245,98,56,1) 19%, rgba(5,4,2,1) 100%); */
-  border-radius: 8px;
+  /* border-radius: 8px;
   border-bottom: black solid 1px;
   border-right: black solid 1px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1em;
-}
+} */
 
 .welcome {
   background-color: #c9d1d5;
@@ -106,9 +106,11 @@ input {
   background-color: #1a252d;
   align-items: center;
   border-radius: 8px;
+  border-bottom: black solid 1px;
+  border-right: black solid 1px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 1em;
+  margin: 1em;
   padding: 1.5em;
   padding-bottom: 0;
   padding-top: 2em;

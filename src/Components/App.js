@@ -27,7 +27,7 @@ const App = () => {
   const clickForPrompt = () => {
     setIsFetchingPrompt(true)
     apiCalls.getPrompt()
-    .then((data) => { 
+    .then((data) => {
       if (data.examples.length === 0) {
         setPrompt(data.word)
         setIsFetchingPrompt(false)
@@ -57,7 +57,7 @@ const App = () => {
           setIsFetchingSynonyms(false)
 	        console.error("Something went wrong while fetching synonyms. Please try again.");
         });
-    }  
+    }
   }
 
   const searchForRhymes = (searchInput) => {
@@ -80,7 +80,7 @@ const App = () => {
   const addToFavorites = () => {
     setFavoritePrompts([...favoritePrompts, prompt])
   }
-  
+
   const deletePrompt = (promptId) => {
     const filteredPrompts = favoritePrompts.filter(prompt => prompt !== promptId)
     setFavoritePrompts(filteredPrompts)
@@ -99,27 +99,27 @@ const App = () => {
         <Route exact path='/home'
           render={ () => {
             return (
-              <div className='homePage'>
+              <>
                 {hasError && <h2>Happy accidents. Embrace the mistakes. Try again.</h2>}
                 <section className="selectionContainer">
                   {isFetchingPrompt && <Load type='prompt'/>}
-                  <Prompt 
-                    clickForPrompt={clickForPrompt} 
+                  <Prompt
+                    clickForPrompt={clickForPrompt}
                     prompt={prompt}
                     addToFavorites={addToFavorites}
                   />
                   <div className='formContainer'>
-                    <Form 
+                    <Form
                       searchForRhymes={searchForRhymes}
                       searchForSimilar={searchForSimilar}
                     />
                   </div>
-                </section>   
+                </section>
                 <section className='resultsDisplay'>
                   {isFetchingSynonyms && <Load type='synonyms'/>}
                   {isFetchingRhymes && <Load type='rhymes'/>}
                   {synonymSearchWord && similarWords === undefined && <Error type='synonyms' />}
-                  {similarWords !== undefined && similarWords.length !== 0 && 
+                  {similarWords !== undefined && similarWords.length !== 0 &&
                     <FormResults
                       word={synonymSearchWord}
                       wordResults={similarWords}
@@ -132,21 +132,21 @@ const App = () => {
                       word={rhymeSearchWord}
                       wordResults={rhymingWords}
                       type='rhymes'
-                    /> 
+                    />
                   }
                 </section>
-              </div>
+              </>
             )
           }}
         />
 
         <Route path='/synonyms'>
-          <WordList 
+          <WordList
             word={synonymSearchWord}
             wordResults={similarWords}
             type='synonyms'
           />
-        </Route> 
+        </Route>
 
         <Route path='/rhymes'>
           <WordList
@@ -157,7 +157,7 @@ const App = () => {
         </Route>
 
         <Route path='/favorite-prompts'>
-          <FavoritePrompts 
+          <FavoritePrompts
             favPrompts={favoritePrompts}
             deletePrompt={deletePrompt}
           />
