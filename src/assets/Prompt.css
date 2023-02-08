@@ -17,16 +17,18 @@
 }
 
 .prompt {
-    background-color: #a80500;
+    background-color: #ffffff;
     border-bottom: black solid 1px;
     border-right: black solid 1px;
     border-radius: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 15vh;
-    width: 15vw;
+    height: 6em;
+    width: 6em;
     justify-content: center;
+    padding: 5px;
+    text-align: center;
 }
 
 .prompt:active {
@@ -39,33 +41,32 @@
 }
 
 .promptContainer {
-    background-color: #69969c;
-    background: rgb(63,94,99);
-    /* background: linear-gradient(90deg, rgba(63,94,99,1) 0%, rgba(245,98,56,1) 19%, rgba(5,4,2,1) 100%); */
-    border-radius: 8px;
     display: flex;
     flex-direction: column;
-    padding: 2vh;
     align-items: center;
-    width: 70vw;
+    background-image: url("lamp.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    align-items: center;
+    padding-top: 5em;
+    height: 39em;
+    width: 32em;
+    justify-content: space-evenly;
 }
+
 .promptDisplay {
-    background-color: #3f5e63;
-    border: black;
-    margin-top: 0;
-    padding-top: 0;
-    width: 40vw;
+    background: #EF8397;
+
+
     border-radius: 8px;
     align-items: center;
     display: flex;
     flex-direction: column;
-    margin: 0.7em;
-    padding: 1em;
 }
 
 .promptHeading {
-    background-color: #3f5e63;
-    color: #c9d1d5;
+    color: #ffffff;
+    font-size: larger;
     margin: 0.3em;
 }
 .promptResult {
@@ -79,6 +80,6 @@
 }
 
 .promptTitle {
-    background-color: #a80500;
-    color:white;
+    color:#000000;
+    font-size: large;
 }

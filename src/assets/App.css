@@ -1,24 +1,25 @@
 main {
   align-items: center;
-  background: rgb(63,94,99);
-  background: linear-gradient(90deg, rgba(63,94,99,1) 0%, rgba(245,98,56,1) 19%, rgba(5,4,2,1) 100%);
-  color: 000000;
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(7,44,88,1) 100%);
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding-bottom: 100vh;
 }
 
-/* .homePage {
-  /* background: linear-gradient(90deg, rgba(63,94,99,1) 0%, rgba(245,98,56,1) 19%, rgba(5,4,2,1) 100%); */
-  /* border-radius: 8px;
-  border-bottom: black solid 1px;
-  border-right: black solid 1px;
+.background {
+  background-image: url('lava-background.svg');
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+}
+
+.content-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1em;
-} */
+  margin-top: 10em;
+}
 
 .welcome {
   background-color: #c9d1d5;
@@ -60,7 +61,6 @@ main {
 
 button, a {
   align-items: center;
-  background-color: #69969c;
   border: none;
   border-radius: 8px;
   color: black;
@@ -86,35 +86,14 @@ button, a {
   color:#f56238;
 }
 
-.formContainer {
-  background-color: #69969c;
-  background: rgb(63,94,99);
-  /* background: linear-gradient(90deg, rgba(63,94,99,1) 0%, rgba(245,98,56,1) 19%, rgba(5,4,2,1) 100%); */
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  margin: 1em;
-  padding: 1em;
-}
-
 input {
   color: #f56238;
   height: 4vh;
 }
 
 .selectionContainer {
-  background-color: #1a252d;
-  align-items: center;
-  border-radius: 8px;
-  border-bottom: black solid 1px;
-  border-right: black solid 1px;
   display: flex;
   flex-direction: column;
-  margin: 1em;
-  padding: 1.5em;
-  padding-bottom: 0;
-  padding-top: 2em;
-  width: 80vw;
 }
 
 .loadingMessage {
@@ -158,21 +137,7 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1em;
-  padding: 1em;
-  width: 80%;
-}
-
-.resultsDisplay {
-  align-items: center;
-  background-color: #3f5e63;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  justify-content: space-evenly;
-  padding: 0.5em;
-  width: 80vw;
+  margin: 8em;
 }
 
 .resultsHeading {
@@ -215,6 +180,10 @@ input {
   width: 80%;
 }
 
+.favPromptBackground {
+  height: 100vh;
+}
+
 .favPrompt {
   background-color: #c9d1d5;
   border-radius: 8px;
@@ -231,13 +200,13 @@ input {
   padding: 1em;
 }
 
+.favPromptsTitle {
+  margin-top: 4em;
+}
+
 .favPromptsContainer {
   border-radius: 8px;
   padding: 1em;
-}
-
-.promptContainer {
-  margin: 0.2em;
 }
 
 @media screen and (min-width: 800px) {
