@@ -95,17 +95,11 @@ input {
   flex-direction: column;
 }
 
-.loadingMessage {
-  border-radius: 8px;
-  background-color: #c9d1d5;
-  margin: 0;
-  padding: 0.2em;
-}
-
 .loadingText {
-  background-color: #c9d1d5;
-  color: black;
+  background: none;
+  color: #c9d1d5;
   margin-top: 0;
+  text-align: center;
 }
 
 .resultsContainerRhymes {
@@ -194,15 +188,21 @@ input {
   margin: 0.2em;
   padding: 0.2em;
   text-align: center;
+  width: 80%;
+  align-self: center;
 }
 
 .favPromptsTitle {
   margin-top: 4em;
+  padding: 0.5em;
 }
 
 .favPromptsContainer {
   background-color: #F5764E;
   border-radius: 8px;
+  width: 80%;
+  align-self: center;
+  margin: 1em;
 }
 
 .promptWrapper {

@@ -7,10 +7,9 @@ import Prompt from './Prompt';
 import FormResults from './FormResults';
 import Form from './Form';
 import WordList from './WordList';
-import Welcome from './Welcome';
 import '../assets/App.css';
 import apiCalls from '../apiCalls';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 const App = () => {
   const [prompt, setPrompt] = useState('');
@@ -92,23 +91,15 @@ const App = () => {
           <Route exact path='/'
             render={ () => {
               return (
-                <Welcome />
-              )
-            }}
-          />
-
-          <Route exact path='/home'
-            render={ () => {
-              return (
                 <div className="content-wrapper">
                   {hasError && <p>Happy accidents. Embrace the mistakes. Try again.</p>}
                   <section className="selectionContainer">
-                    {isFetchingPrompt && <Load type='prompt'/>}
                     <Prompt
                       clickForPrompt={clickForPrompt}
                       prompt={prompt}
                       addToFavorites={addToFavorites}
                     />
+                    {isFetchingPrompt && <Load />}
                     <div className='formContainer'>
                       <Form
                         searchForRhymes={searchForRhymes}
@@ -117,8 +108,8 @@ const App = () => {
                     </div>
                   </section>
                   <section className='resultsDisplay'>
-                    {isFetchingSynonyms && <Load type='synonyms'/>}
-                    {isFetchingRhymes && <Load type='rhymes'/>}
+                    {isFetchingSynonyms && <Load />}
+                    {isFetchingRhymes && <Load />}
                     {synonymSearchWord && similarWords === undefined && <Error type='synonyms' />}
                     {similarWords !== undefined && similarWords.length !== 0 &&
                       <FormResults
