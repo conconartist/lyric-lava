@@ -55,12 +55,13 @@
 }
 
 .promptDisplay {
-    background: #EF8397;
-    padding: 1em;
+    background: #090b0e;
     border-radius: 8px;
     align-items: center;
     display: flex;
     flex-direction: column;
+    width: 15em;
+    height: 10em;
 }
 
 .promptHeading {

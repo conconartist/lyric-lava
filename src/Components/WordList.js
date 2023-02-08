@@ -19,7 +19,7 @@ const WordList = ({word, wordResults, type}) => {
         {list}
         </section>
         <div className='homeButtonContainer'>
-          <Link to='/home'>
+          <Link to='/'>
             <button className='homeButton'>Home</button>
           </Link>
         </div>
@@ -32,7 +32,7 @@ const WordList = ({word, wordResults, type}) => {
         <section className="resultsList">
           {list}
         </section>
-          <Link to='/home'>
+          <Link to='/'>
             <button className='homeButton'>Home</button>
           </Link>
       </div>

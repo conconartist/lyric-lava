@@ -6,7 +6,7 @@ import titleImg from "../assets/lyric-lava-title.png"
 const Nav = () => {
   return (
     <nav>
-      <Link to='/home'>
+      <Link to='/'>
         <img src={titleImg} />
       </Link>
       <div className='linkContainer'>

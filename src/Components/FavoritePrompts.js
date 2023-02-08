@@ -17,7 +17,7 @@ const FavoritePrompts = ({ favPrompts, deletePrompt }) => {
       <div className="favPromptBackground">
         <h3 className='favPromptsTitle'>Your Prompts</h3>
         <h4 className='noPromptsMessage'>No prompts saved.</h4>
-        <Link to='/home'>
+        <Link to='/'>
           <button className='homeButton'>Home</button>
         </Link>
       </div>
@@ -30,7 +30,7 @@ const FavoritePrompts = ({ favPrompts, deletePrompt }) => {
         <div className='favPromptsContainer'>
           {prompts}
         </div>
-        <Link to='/home'>
+        <Link to='/'>
           <button className='homeButton'>Home</button>
         </Link>
       </div>

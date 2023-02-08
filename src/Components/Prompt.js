@@ -18,7 +18,7 @@ const Prompt = ({ clickForPrompt, prompt, addToFavorites }) => {
         </>}
       </div>
       <div className='prompt' onClick={clickForPrompt}>
-        <h4 className='promptTitle'>Need a Prompt?</h4>
+        <h4 className='promptTitle'>Click for Prompt</h4>
       </div>
     </div>
   )
