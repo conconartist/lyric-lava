@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const WordList = ({word, wordResults, type}) => {
   const list = wordResults.map((word, index) => {
-    return <Word 
+    return <Word
       id={word}
       word={word}
       key={index}
@@ -15,14 +15,14 @@ const WordList = ({word, wordResults, type}) => {
     return (
       <div className='resultsContainer'>
         <h3 className='resultsHeading'> Words that rhyme with "{word}": </h3>
-        <section className='resultsList'>
-          {list}
+        <section className="resultsList">
+        {list}
         </section>
         <div className='homeButtonContainer'>
           <Link to='/home'>
             <button className='homeButton'>Home</button>
           </Link>
-        </div>   
+        </div>
       </div>
     )
   } else if(type === 'synonyms') {
@@ -44,7 +44,7 @@ const WordList = ({word, wordResults, type}) => {
 export default WordList;
 
 WordList.propTypes = {
-  word: PropTypes.string.isRequired, 
-  wordResults: PropTypes.array.isRequired, 
+  word: PropTypes.string.isRequired,
+  wordResults: PropTypes.array.isRequired,
   type: PropTypes.string.isRequired
 }

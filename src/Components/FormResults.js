@@ -5,14 +5,14 @@ import PropTypes from 'prop-types';
 
 const FormResults = ({ word, wordResults, type}) => {
   const results = wordResults.map((word, index) => {
-    return <Word 
+    return <Word
       id={word}
       word={word}
       key={index}
     />
   })
   const longResults = wordResults.slice(0, 10).map((word, index) => {
-    return <Word 
+    return <Word
       id={word}
       word={word}
       key={index}
@@ -22,21 +22,17 @@ const FormResults = ({ word, wordResults, type}) => {
     return (
       <div className='resultsContainerRhymes'>
         <h3 className='resultsHeadingRhymes'> Words that rhyme with "{word}": </h3>
-        <section className='resultsListRhymes'>
           {results}
-        </section>
       </div>
-    ) 
+    )
   } else if (type === 'rhymes' && wordResults.length > 10) {
     return (
       <div className='resultsContainerRhymes'>
         <h3 className='resultsHeadingRhymes'> Words that rhyme with "{word}": </h3>
-        <section className='resultsListRhymes'>
-          {longResults}
-        </section>
+        {longResults}
         <Link to='/rhymes'>
           <button className='listButton'>
-            Click to see all results 
+            Click to see all results
           </button>
         </Link>
       </div>
@@ -45,25 +41,21 @@ const FormResults = ({ word, wordResults, type}) => {
     return (
       <div className="resultsContainerSynonyms">
         <h3 className="resultsHeadingSynonyms">Words that are similar to "{word}":</h3>
-        <section className="resultsListSynonyms">
-          {results}
-        </section>
+        {results}
       </div>
     )
   } else if (type === 'synonyms' && wordResults.length > 10) {
     return (
       <div className='resultsContainerSynonyms'>
         <h3 className='resultsHeadingSynonyms'> Words that are similar to "{word}": </h3>
-        <section className='resultsListSynonyms'>
-          {longResults}
-        </section>
+        {longResults}
         <Link to='/synonyms'>
           <button className='listButton'>
             Click to see all results
           </button>
         </Link>
-      </div>  
-    )        
+      </div>
+    )
   } else {
     return (
       null

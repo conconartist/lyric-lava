@@ -3,7 +3,7 @@ import FavPrompt from './FavPrompt';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const FavoritePrompts = ( {favPrompts, deletePrompt}) => {
+const FavoritePrompts = ({ favPrompts, deletePrompt }) => {
     const prompts = favPrompts.map((prompt) => {
       return <FavPrompt
         id={prompt}
@@ -26,7 +26,7 @@ const FavoritePrompts = ( {favPrompts, deletePrompt}) => {
   } else {
     return (
       <div className="favPromptBackground">
-        <h3 class='favPromptsTitle'>Your Prompts</h3>
+        <h3 className='favPromptsTitle'>Your Prompts</h3>
         <div className='favPromptsContainer'>
           {prompts}
         </div>

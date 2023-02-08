@@ -56,8 +56,7 @@
 
 .promptDisplay {
     background: #EF8397;
-
-
+    padding: 1em;
     border-radius: 8px;
     align-items: center;
     display: flex;
@@ -75,7 +74,7 @@
     border-right: black solid 1px;
     color: #c9d1d5;
     font-style: bold;
-    margin: 0.2em;
+    margin: 1.2em;
     padding: 0.5em;
 }
 

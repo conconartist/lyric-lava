@@ -18,7 +18,6 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10em;
 }
 
 .welcome {
@@ -67,9 +66,9 @@ button, a {
   font-size: 1em;
   display: flex;
   justify-content: center;
-  margin: 0.5em;
   padding: 0.75em;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .enterButton {
@@ -111,7 +110,7 @@ input {
 
 .resultsContainerRhymes {
   align-items: center;
-  background-color: #3f5e63;
+  background-color: #F5764E;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -122,7 +121,7 @@ input {
 
 .resultsContainerSynonyms {
   align-items: center;
-  background-color: #3f5e63;
+  background-color: #F5764E;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -140,12 +139,16 @@ input {
   margin: 8em;
 }
 
+.resultsDisplay {
+  display: flex;
+}
+
 .resultsHeading {
   background-color: #c9d1d5;
 }
 
 .resultsHeadingSynonyms, .resultsHeadingRhymes {
-  background-color: #3f5e63;
+  background-color: #F5764E;
   color: black;
 }
 
@@ -160,16 +163,6 @@ input {
   grid-template-columns: repeat(2, 1fr);
 }
 
-.resultsListSynonyms, .resultsListRhymes {
-  align-items: center;
-  background-color: #69969c;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  margin: 1em;
-  width: 100%;
-}
-
 .singleWord {
   border-radius: 8px;
   padding: 3%;
@@ -182,6 +175,8 @@ input {
 
 .favPromptBackground {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .favPrompt {
@@ -189,15 +184,16 @@ input {
   border-radius: 8px;
   color: #000000;
   padding: 1em;
+  margin: 1em;
 }
 
 .favPromptsTitle, .noPromptsMessage {
   background-color: #000000;
   border-radius: 8px;
   color: #c9d1d5;
-  font-size: 2em;
-  margin: 1em;
-  padding: 1em;
+  margin: 0.2em;
+  padding: 0.2em;
+  text-align: center;
 }
 
 .favPromptsTitle {
@@ -205,8 +201,15 @@ input {
 }
 
 .favPromptsContainer {
+  background-color: #F5764E;
   border-radius: 8px;
-  padding: 1em;
+}
+
+.promptWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 @media screen and (min-width: 800px) {
