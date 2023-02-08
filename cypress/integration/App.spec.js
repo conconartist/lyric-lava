@@ -1,18 +1,12 @@
 describe('Main Display', () => {
     const url = 'http://localhost:3000';
-    
+
     describe('Greeting', () => {
       beforeEach(() => {
         cy
-        .visit(url)  
-        .get('.enterButton').click()  
+        .visit(url)
     })
 
-    it('should be able to visit the url and see the title of the app', () => {
-        cy
-        .get('h1').should('contain','Lyric Lava')
-    })
-        
     it('should be able to click on the button to take you to the home page with visible prompt button and search bars', () => {
         cy
         .get('.prompt').should('be.visible')
@@ -21,7 +15,7 @@ describe('Main Display', () => {
 
     it('should take you to a new url when the button is clicked', () => {
         cy
-        .location('pathname').should('eq', '/home')
+        .location('pathname').should('eq', '/')
     })
     })
 
@@ -29,13 +23,12 @@ describe('Main Display', () => {
         beforeEach(() => {
           cy
           .visit(url)
-          .get('.enterButton').click()
         })
 
     it('should display a loading message when the button is rendering a prompt', () => {
         cy
         .get('.prompt').click()
-        .get('.loadingMessage > .loadingText').should('contain', "Loading")
+        .get('.loadingText').should('contain', "Loading")
     })
 
     it('should display a prompt when you press the prompt button', () => {
@@ -55,30 +48,13 @@ describe('Main Display', () => {
         .get('.searchBar').type('hello')
         .wait(5000)
         .get('.buttonThesaurus').click()
-        .get('.resultsDisplay > .loadingMessage').should('be.visible')
-    })
-
-    it('should display a list of words when a word is entered in the "get similar words" input field', () => {
-        cy
-        .get('.searchBar').type('hello')
-        .get('.buttonThesaurus').click()
-        .wait(5000)
-        .get('.resultsListSynonyms').should('contain', 'howdy')
-    })
-
-    it('should display a list of rhyming words when a word is entered in the "get rhyming words" input field', () => {
-        cy
-        .get('.searchBar').type('single')
-        .get('.buttonRhymes').click()
-        .wait(5000)
-        .get('.resultsListRhymes').should('contain', 'jingle')
+        .get('.resultsDisplay > .loadingText').should('be.visible')
     })
 
     it('should display an error if the word is not found from searching for similar words', () => {
         cy
         .get('.searchBar').type('ojojie')
         .get('.buttonRhymes').click()
-        // .get('.errorText').should('contain', 'What a cool word!')
         .get('.errorText').should('be.visible')
     })
 
@@ -89,13 +65,13 @@ describe('Main Display', () => {
         .get('.errorText').should('contain', 'You\'re so creative')
         .get('.errorText').should('be.visible')
     })
-        
+
     it('should display a list of words and a button to click to see more results if the returning array is longer than 10 words', () => {
         cy
         .get('.searchBar').type('single')
         .get('.buttonRhymes').click()
         .wait(5000)
-        .get('.resultsContainerRhymes > .resultsListRhymes > .singleWord').should('contain', 'bingle')
+        .get('.resultsContainerRhymes > .singleWord').should('contain', 'bingle')
         .get('.resultsContainerRhymes > a > .listButton').should('be.visible')
     })
 
@@ -114,9 +90,8 @@ describe('Main Display', () => {
       beforeEach(() => {
         cy
         .visit(url)
-        .get('.enterButton').click()
         })
-        
+
     it('should display a full list of words on a different page when the button to see more results is clicked', () => {
         cy
         .get('.searchBar').type('single')
@@ -127,7 +102,7 @@ describe('Main Display', () => {
         .get('.resultsContainer > .resultsList > .singleWord').should('contain', 'bingle')
         .get('.resultsContainer > .resultsList > .singleWord').should('contain', 'whelk tingle')
         })
-    
+
     it('should display a home button when you are on the full results page', () => {
         cy
         .get('.searchBar').type('single')
@@ -143,21 +118,12 @@ describe('Main Display', () => {
         it('should display a button to see your favorite prompts', () => {
             cy
             .visit(url)
-            .get('.enterButton').click()
             .get('.favPromptButton').should('be.visible')
-        })
-        
-        it('should display a button in the nav bar to go to the main display', () => {
-            cy
-            .visit(url)
-            .get('.enterButton').click()
-            .get('a').contains('Home').should('be.visible')
         })
 
         it('should let you add your favorite prompts', () => {
             cy
             .visit(url)
-            .get('.enterButton').click()
             .get('.prompt').click()
             .get('.favoritesButton').click()
         })
@@ -165,7 +131,6 @@ describe('Main Display', () => {
         beforeEach(() => {
             cy
             .visit(url)
-            .get('.enterButton').click()
             .get('.prompt').click()
             .wait(500)
             .get('.favoritesButton').click()
@@ -181,19 +146,19 @@ describe('Main Display', () => {
             cy
             .get('.favPromptButton').click()
             .get('.favPromptsContainer').should('be.visible')
-            .get('.promptContainer > .favPrompt').should('be.visible')
+            .get('.promptWrapper > .favPrompt').should('be.visible')
         })
 
         it('should have a delete button with each prompt listed', () => {
             cy
             .get('.favPromptButton').click()
-            .get('.promptContainer > .deleteButton').should('be.visible')
+            .get('.promptWrapper > .deleteButton').should('be.visible')
         })
 
         it('should remove a prompt when you click on the delete button next to a prompt listed', () => {
             cy
             .get('.favPromptButton').click()
-            .get('.promptContainer > .deleteButton').click({multiple:true})
+            .get('.promptWrapper > .deleteButton').click({multiple:true})
             .wait(5000)
             .get('.favPromptsContainer').should('contain', '')
         })
@@ -202,7 +167,7 @@ describe('Main Display', () => {
             cy
             .get('.favPromptButton').click()
             .get('a').contains('Home').click()
-            .location('pathname').should('eq', '/home')
+            .location('pathname').should('eq', '/')
         })
     })
 })

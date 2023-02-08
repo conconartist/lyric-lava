@@ -7,10 +7,9 @@ import Prompt from './Prompt';
 import FormResults from './FormResults';
 import Form from './Form';
 import WordList from './WordList';
-import Welcome from './Welcome';
 import '../assets/App.css';
 import apiCalls from '../apiCalls';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 const App = () => {
   const [prompt, setPrompt] = useState('');
@@ -88,80 +87,74 @@ const App = () => {
     return (
       <main>
         <Nav />
-        <Route exact path='/'
-          render={ () => {
-            return (
-              <Welcome />
-            )
-          }}
-        />
-
-        <Route exact path='/home'
-          render={ () => {
-            return (
-              <>
-                {hasError && <h2>Happy accidents. Embrace the mistakes. Try again.</h2>}
-                <section className="selectionContainer">
-                  {isFetchingPrompt && <Load type='prompt'/>}
-                  <Prompt
-                    clickForPrompt={clickForPrompt}
-                    prompt={prompt}
-                    addToFavorites={addToFavorites}
-                  />
-                  <div className='formContainer'>
-                    <Form
-                      searchForRhymes={searchForRhymes}
-                      searchForSimilar={searchForSimilar}
+        <div className="background">
+          <Route exact path='/'
+            render={ () => {
+              return (
+                <div className="content-wrapper">
+                  {hasError && <p>Happy accidents. Embrace the mistakes. Try again.</p>}
+                  <section className="selectionContainer">
+                    <Prompt
+                      clickForPrompt={clickForPrompt}
+                      prompt={prompt}
+                      addToFavorites={addToFavorites}
                     />
-                  </div>
-                </section>
-                <section className='resultsDisplay'>
-                  {isFetchingSynonyms && <Load type='synonyms'/>}
-                  {isFetchingRhymes && <Load type='rhymes'/>}
-                  {synonymSearchWord && similarWords === undefined && <Error type='synonyms' />}
-                  {similarWords !== undefined && similarWords.length !== 0 &&
-                    <FormResults
-                      word={synonymSearchWord}
-                      wordResults={similarWords}
-                      type='synonyms'
-                    />
-                  }
-                  {rhymeSearchWord && rhymingWords === undefined && <Error type='rhymes' />}
-                  {rhymingWords !== undefined && rhymingWords.length !== 0 &&
-                    <FormResults
-                      word={rhymeSearchWord}
-                      wordResults={rhymingWords}
-                      type='rhymes'
-                    />
-                  }
-                </section>
-              </>
-            )
-          }}
-        />
-
-        <Route path='/synonyms'>
-          <WordList
-            word={synonymSearchWord}
-            wordResults={similarWords}
-            type='synonyms'
+                    {isFetchingPrompt && <Load />}
+                    <div className='formContainer'>
+                      <Form
+                        searchForRhymes={searchForRhymes}
+                        searchForSimilar={searchForSimilar}
+                      />
+                    </div>
+                  </section>
+                  <section className='resultsDisplay'>
+                    {isFetchingSynonyms && <Load />}
+                    {isFetchingRhymes && <Load />}
+                    {synonymSearchWord && similarWords === undefined && <Error type='synonyms' />}
+                    {similarWords !== undefined && similarWords.length !== 0 &&
+                      <FormResults
+                        word={synonymSearchWord}
+                        wordResults={similarWords}
+                        type='synonyms'
+                      />
+                    }
+                    {rhymeSearchWord && rhymingWords === undefined && <Error type='rhymes' />}
+                    {rhymingWords !== undefined && rhymingWords.length !== 0 &&
+                      <FormResults
+                        word={rhymeSearchWord}
+                        wordResults={rhymingWords}
+                        type='rhymes'
+                      />
+                    }
+                  </section>
+                </div>
+              )
+            }}
           />
-        </Route>
 
-        <Route path='/rhymes'>
-          <WordList
-            word={rhymeSearchWord}
-            wordResults={rhymingWords}
-            type='rhymes'
-          />
-        </Route>
+          <Route path='/synonyms'>
+            <WordList
+              word={synonymSearchWord}
+              wordResults={similarWords}
+              type='synonyms'
+            />
+          </Route>
 
-        <Route path='/favorite-prompts'>
-          <FavoritePrompts
-            favPrompts={favoritePrompts}
-            deletePrompt={deletePrompt}
-          />
-        </Route>
+          <Route path='/rhymes'>
+            <WordList
+              word={rhymeSearchWord}
+              wordResults={rhymingWords}
+              type='rhymes'
+            />
+          </Route>
+
+          <Route path='/favorite-prompts'>
+            <FavoritePrompts
+              favPrompts={favoritePrompts}
+              deletePrompt={deletePrompt}
+            />
+          </Route>
+        </div>
       </main>
     )
   }

@@ -1,22 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/Nav.css';
+import titleImg from "../assets/lyric-lava-title.png"
 
 const Nav = () => {
   return (
     <nav>
-      <h1 className='title'>Lyric Lava</h1>
-        <div className='linkContainer'>
-          <Link to='/home'>
-                Home
-          </Link>
+      <Link to='/'>
+        <img src={titleImg} />
+      </Link>
+      <div className='linkContainer'>
           <Link to='/favorite-prompts'>
               <button className='favPromptButton'>
                 Favorite Prompts
               </button>
           </Link>
-        </div>
-    </nav>  
+      </div>
+    </nav>
   )
 }
 

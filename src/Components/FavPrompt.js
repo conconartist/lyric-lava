@@ -8,12 +8,12 @@ const FavPrompt = ({ id, prompt, deletePrompt }) => {
     deletePrompt(promptId)
   }
   return (
-    <div id={id} className='promptContainer'>
+    <div id={id} className='promptWrapper'>
       <p className='favPrompt'>{prompt}</p>
-      <button 
-        id={id} 
-        className='deleteButton' 
-        onClick={deleteFavPrompt}>Delete
+      <button
+        id={id}
+        className='deleteButton'
+        onClick={deleteFavPrompt}>&#10006;
       </button>
     </div>
   )

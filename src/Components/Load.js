@@ -1,16 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Load = ({type}) => {
+const Load = () => {
   return (
-    <section className='loadingMessage'>
-      <h2 className='loadingText'>Loading {type}...</h2>
-    </section>
+    <h2 className='loadingText'>Loading...</h2>
   )
 }
 
 export default Load;
 
-Load.propTypes = {
-    type: PropTypes.string.isRequired
-}
