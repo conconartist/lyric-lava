@@ -17,24 +17,22 @@ const Form = ( { searchForRhymes, searchForSimilar }) => {
   }
 
   return(
-    <div className='searchFormContainer'>
-      <form className='searchForm'>
-        <input
-          className='searchBar'
-          type='text'
-          placeholder='Enter Word'
-          value={userInput}
-          onChange={searchWords}
-          aria-label='Search Similar Words'
-          aria-required='true'
-        >
-        </input>
-        <div className='searchButtonContainer'>
-          <button className='buttonRhymes' onClick={searchRhymingWords}>Rhymes</button>
-          <button className='buttonThesaurus' onClick={searchSimilarWords} >Synonyms</button>
-        </div>
-      </form>
-    </div>
+    <form className='searchForm'>
+      <input
+        className='searchBar'
+        type='text'
+        placeholder='Enter Word'
+        value={userInput}
+        onChange={searchWords}
+        aria-label='Search Similar Words'
+        aria-required='true'
+      >
+      </input>
+      <div className='searchButtonContainer'>
+        <button className='buttonRhymes' onClick={searchRhymingWords}>Rhymes</button>
+        <button className='buttonThesaurus' onClick={searchSimilarWords} >Synonyms</button>
+      </div>
+    </form>
   )
 }
 export default Form;
