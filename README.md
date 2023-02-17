@@ -59,12 +59,7 @@ The purpose of this project is to build a comprehensive web app from start to fi
 7. To run tests, enter `npx cypress open` in your project directory and select `App.spec.js` which can be found in the integration folder inside of the cypress test folder. 
 
 ## In Action:
+<img width="893" alt="Screen Shot 2023-02-17 at 12 13 20 PM" src="https://user-images.githubusercontent.com/67291333/219784516-24de2127-03c7-4741-8fa2-3f41d43bfeb3.png">
+<img width="940" alt="Screen Shot 2023-02-17 at 12 14 13 PM" src="https://user-images.githubusercontent.com/67291333/219784530-f8dc5e87-163e-40d8-8935-c496a378e0ec.png">
 
-![enter](https://media.giphy.com/media/ioVFsxLZjC7SDO0iWt/giphy.gif)
-
-![favorite prompts](https://media.giphy.com/media/X3i2Z0GtKjEAkFah1N/giphy.gif)
-
-![search bar](https://media.giphy.com/media/jT7L3fghR6YfY8vmvJ/giphy.gif)
-
-![more search](https://media.giphy.com/media/8s0ItqtiNFr3sHQsIt/giphy.gif)
 
