@@ -23,7 +23,7 @@ const getData = (url) => {
   return fetch(url, {
     "method": "GET",
     "headers": {
-      "x-rapidapi-key": process.env.REACT_APP_API_KEY,
+      "x-rapidapi-key": "ab8f25f4e4msh6e7ff2ff1b339f9p198212jsn42fc0f56dbc6",
       "x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
     }
     })
